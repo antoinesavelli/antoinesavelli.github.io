@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMzQ0QTNEIi8+CiAgPHRleHQgeD0iMTYiIHk9IjIyIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtc3R5bGU9Iml0YWxpYyIKICAgIGZpbGw9IiNGMkYyRjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIwLjUiPkFTPC90ZXh0Pgo8L3N2Zz4=" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antoine Savelli</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,12 +43,26 @@
       border-bottom: 1px solid rgba(52,74,61,0.12);
     }
     .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      text-decoration: none;
+    }
+    .nav-name {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       font-weight: 400;
       color: var(--forest);
       letter-spacing: 0.04em;
-      text-decoration: none;
+      line-height: 1;
+    }
+    .nav-subtitle {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      line-height: 1;
     }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
@@ -99,9 +114,9 @@
       background: var(--off-white);
     }
     .hero-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--forest-light);
       margin-bottom: 1.5rem;
@@ -250,37 +265,31 @@
 
     /* SKILLS */
     #skills { background: var(--off-white); }
-    .skills-grid {
+    .skills-table { width: 100%; border-collapse: collapse; }
+    .skills-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2px;
+      grid-template-columns: 200px 1fr;
+      border-top: 1px solid var(--cream-dark);
+      padding: 1.4rem 0;
+      align-items: baseline;
+      gap: 2rem;
     }
-    .skill-category {
-      background: var(--cream);
-      padding: 2.5rem;
-      transition: transform 0.2s;
-    }
-    .skill-category:hover { transform: translateY(-2px); }
-    .skill-category-title {
-      font-size: 0.72rem;
+    .skills-row:last-child { border-bottom: 1px solid var(--cream-dark); }
+    .skills-category-name {
+      font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--forest);
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid var(--forest);
     }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill-tag {
-      font-size: 0.76rem;
-      font-weight: 400;
+    .skills-values {
+      font-size: 0.88rem;
+      font-weight: 300;
       color: var(--mid);
-      background: var(--off-white);
-      padding: 0.35rem 0.8rem;
-      border: 1px solid var(--cream-dark);
-      letter-spacing: 0.03em;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
     }
+    .skills-values span { color: var(--forest-light); margin: 0 0.5rem; font-weight: 300; }
 
     /* CONNECT */
     #connect { background: var(--forest); }
@@ -373,8 +382,8 @@
       margin-top: 0.5rem;
       width: 100%;
       padding: 1rem;
-      background: var(--accent);
-      color: var(--charcoal);
+      background: var(--forest-light);
+      color: var(--cream);
       font-family: 'Libre Franklin', sans-serif;
       font-size: 0.78rem;
       font-weight: 600;
@@ -384,7 +393,9 @@
       cursor: pointer;
       transition: background 0.2s, transform 0.15s;
     }
-    .form-submit:hover { background: #d4b87a; transform: translateY(-1px); }
+    .form-submit:hover { background: var(--forest-mid); transform: translateY(-1px); }
+
+    .form-note { font-size: 0.72rem; color: rgba(242,242,242,0.4); margin-top: 0.6rem; text-align: center; letter-spacing: 0.03em; }
 
     /* FOOTER */
     footer {
@@ -429,7 +440,9 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#">Antoine Savelli</a>
+  <a class="nav-brand" href="#">
+    <span class="nav-name">Antoine Savelli</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -445,9 +458,9 @@
   <div class="hero-text fade-up">
     <p class="hero-eyebrow">Alexandria, VA · Open to Opportunities</p>
     <h1 class="hero-name">Antoine<br><em>Savelli</em></h1>
-    <p class="hero-title">AI Implementation Specialist &amp; Research Analyst</p>
+    <p class="hero-title">AI Implementation · Data Infrastructure · Research Analytics</p>
     <p class="hero-bio">
-      Research professional with <strong>4+ years</strong> building AI infrastructure inside market research operations. I replace legacy tools with GPT-based pipelines, automate data workflows in Python and R, and ship systems that change how teams work.
+      I've spent five years in research. About a year in, I started replacing parts of it with code. The last two years have been about building AI into it: replacing legacy tools with LLM-based pipelines, automating workflows in Python and R, and building infrastructure that makes 'the old way' embarrassing.
     </p>
     <div class="hero-ctas">
       <a href="#portfolio" class="btn-primary">View Portfolio</a>
@@ -463,25 +476,25 @@
     <a href="https://drive.google.com/file/d/1u-tGap72p3jAvo13iA71VRURiSem9l2H/view?usp=sharing" target="_blank" class="doc-card fade-up">
       <p class="doc-number">01</p>
       <h3 class="doc-title">Resume</h3>
-      <p class="doc-desc">4+ years of market research experience with a deliberate AI implementation pivot. SimpsonScarborough, HarrisX, and Stanford.</p>
+      <p class="doc-desc">Research operations, AI implementation, and data infrastructure across market research firms, a university, and an independent project.</p>
       <span class="doc-cta">View</span>
     </a>
     <a href="https://drive.google.com/file/d/14Y0NcO2cwdZTpFHjoWy9LrlVRw6LHmay/view?usp=sharing" target="_blank" class="doc-card fade-up">
       <p class="doc-number">02</p>
       <h3 class="doc-title">AI Implementation in Action</h3>
-      <p class="doc-desc">Case studies covering GPT pipeline deployment, Python and R automation, and live Tableau dashboard integration. Each entry documents the Challenge, Action, and Result.</p>
+      <p class="doc-desc">Case studies covering LLM-based pipeline deployment, Python and R automation, and live Tableau dashboard integration. Each entry documents the Challenge, Action, and Result.</p>
       <span class="doc-cta">View</span>
     </a>
     <a href="https://drive.google.com/file/d/1VVJjyaAfFkFP3aEwU5N_zMSpKkuULsmL/view?usp=sharing" target="_blank" class="doc-card fade-up">
       <p class="doc-number">03</p>
-      <h3 class="doc-title">Paramo</h3>
-      <p class="doc-desc">An independent AI-assisted data engineering project built outside of work. API connectors, scrapers, and a quantitative research pipeline.</p>
+      <h3 class="doc-title">PARAMO – Self-Built Trading Research System</h3>
+      <p class="doc-desc">A Python-based codebase built entirely outside of work from scratch with no team, no budget, and no playbook. Backtests pattern-based strategies across thousands of stocks using a custom scoring engine.</p>
       <span class="doc-cta">View</span>
     </a>
     <a href="https://drive.google.com/file/d/1xyuXws9u3oc-PJpEZVxljkZfq-j6ZhwU/view?usp=drive_link" target="_blank" class="doc-card fade-up">
       <p class="doc-number">04</p>
       <h3 class="doc-title">Cognitive Profile</h3>
-      <p class="doc-desc">Built around three Johnson O'Connor aptitudes: Inductive Reasoning, Foresight, and Analytical Reasoning.</p>
+      <p class="doc-desc">Based on one of the longest-running and most cited human aptitude studies in the US. Documents three 99th percentile cognitive strengths and how they apply in practice.</p>
       <span class="doc-cta">View</span>
     </a>
   </div>
@@ -490,73 +503,38 @@
 <!-- SKILLS -->
 <section id="skills">
   <h2 class="section-title fade-up">Skills &amp; Tools</h2>
-  <div class="skills-grid">
-    <div class="skill-category fade-up">
-      <p class="skill-category-title">AI &amp; Automation</p>
-      <div class="skill-tags">
-        <span class="skill-tag">GPT / LLM Integration</span>
-        <span class="skill-tag">AI Tool Evaluation</span>
-        <span class="skill-tag">Prompt Engineering</span>
-        <span class="skill-tag">Pipeline Design</span>
-        <span class="skill-tag">Workflow Automation</span>
-      </div>
+  <div class="skills-table">
+
+    <div class="skills-row fade-up">
+      <p class="skills-category-name">AI &amp; Automation</p>
+      <p class="skills-values">LLM Integration <span>/</span> AI Tool Evaluation <span>/</span> Prompt Engineering <span>/</span> Workflow Automation</p>
     </div>
-    <div class="skill-category fade-up">
-      <p class="skill-category-title">Programming</p>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">R</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">SPSS Syntax</span>
-        <span class="skill-tag">Excel VBA</span>
-      </div>
+
+    <div class="skills-row fade-up">
+      <p class="skills-category-name">Data Infrastructure</p>
+      <p class="skills-values">Pipeline Design <span>/</span> REST APIs <span>/</span> ETL Processes <span>/</span> Google BigQuery <span>/</span> Tableau <span>/</span> SPSS <span>/</span> Data Cleaning</p>
     </div>
-    <div class="skill-category fade-up">
-      <p class="skill-category-title">Statistical Methods</p>
-      <div class="skill-tags">
-        <span class="skill-tag">Regression Analysis</span>
-        <span class="skill-tag">Segmentation</span>
-        <span class="skill-tag">Cluster Analysis</span>
-        <span class="skill-tag">Factor Analysis</span>
-        <span class="skill-tag">Crosstabulation</span>
-        <span class="skill-tag">Significance Testing</span>
-        <span class="skill-tag">Thematic Analysis</span>
-        <span class="skill-tag">Sentiment Analysis</span>
-      </div>
+
+    <div class="skills-row fade-up">
+      <p class="skills-category-name">Research</p>
+      <p class="skills-values">Survey Design <span>/</span> Sample Design <span>/</span> Weighting <span>/</span> Market Research <span>/</span> Open-End Coding <span>/</span> Thematic Synthesis <span>/</span> Statistical Analysis <span>/</span> Presenting Findings</p>
     </div>
-    <div class="skill-category fade-up">
-      <p class="skill-category-title">Research Design</p>
-      <div class="skill-tags">
-        <span class="skill-tag">Survey Design</span>
-        <span class="skill-tag">Quantitative Research</span>
-        <span class="skill-tag">Qualitative Research</span>
-        <span class="skill-tag">Market Research</span>
-        <span class="skill-tag">Full Research Lifecycle</span>
-        <span class="skill-tag">Data Cleaning</span>
-      </div>
+
+    <div class="skills-row fade-up">
+      <p class="skills-category-name">Programming</p>
+      <p class="skills-values">Python <span>/</span> R <span>/</span> SQL <span>/</span> SPSS Syntax <span>/</span> Excel VBA</p>
     </div>
-    <div class="skill-category fade-up">
-      <p class="skill-category-title">Platforms &amp; Tools</p>
-      <div class="skill-tags">
-        <span class="skill-tag">Excel (Advanced)</span>
-        <span class="skill-tag">Qualtrics</span>
-        <span class="skill-tag">Adverity</span>
-        <span class="skill-tag">Microsoft Access</span>
-        <span class="skill-tag">GitHub</span>
-        <span class="skill-tag">Google Suite</span>
-        <span class="skill-tag">Microsoft 365</span>
-      </div>
+
+    <div class="skills-row fade-up">
+      <p class="skills-category-name">Platforms &amp; Tools</p>
+      <p class="skills-values">Excel (Advanced) <span>/</span> Qualtrics <span>/</span> Microsoft Access <span>/</span> GitHub <span>/</span> Google Suite <span>/</span> Microsoft 365</p>
     </div>
-    <div class="skill-category fade-up">
-      <p class="skill-category-title">Cognitive Profile</p>
-      <div class="skill-tags">
-        <span class="skill-tag">Spotting Patterns in Data</span>
-        <span class="skill-tag">Long-Range Planning</span>
-        <span class="skill-tag">Breaking Down Complex Problems</span>
-        <span class="skill-tag">Systems Thinking</span>
-        <span class="skill-tag">Independent Problem Solving</span>
-      </div>
+
+    <div class="skills-row fade-up">
+      <p class="skills-category-name">Cognitive Profile</p>
+      <p class="skills-values">Spotting Patterns in Data <span>/</span> Long-Range Planning <span>/</span> Breaking Down Complex Problems <span>/</span> Systems Thinking <span>/</span> Independent Problem Solving</p>
     </div>
+
   </div>
 </section>
 
@@ -586,7 +564,7 @@
         <p class="link-handle">antoinesavelli</p>
       </div>
     </a>
-    <a href="mailto:antoine@antoine-savelli.com" class="link-card fade-up">
+    <a href="mailto:antoinesavelli@outlook.com" class="link-card fade-up">
       <div class="link-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -594,7 +572,7 @@
       </div>
       <div class="link-info">
         <p class="link-platform">Email</p>
-        <p class="link-handle">antoine@antoine-savelli.com</p>
+        <p class="link-handle">antoinesavelli@outlook.com</p>
       </div>
     </a>
   </div>
@@ -622,13 +600,14 @@
         <textarea id="message" name="message" placeholder="Tell me about the opportunity..." required></textarea>
       </div>
       <button type="submit" class="form-submit">Send Message</button>
+      <p class="form-note">No data stored — your message is sent directly to my inbox.</p>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>2025 Antoine Savelli · Alexandria, VA</p></footer>
+  <p>2026 Antoine Savelli · Alexandria, VA</p></footer>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -642,7 +621,7 @@
     e.preventDefault();
     const form = e.target;
     const btn = form.querySelector('.form-submit');
-    btn.textContent = 'Sending...';
+    btn.textContent = 'Sending — please wait';
     btn.disabled = true;
     try {
       const res = await fetch('https://formspree.io/f/mrejgyyj', {
