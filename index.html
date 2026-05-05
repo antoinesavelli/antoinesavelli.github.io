@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antoine Savelli</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --forest: #456B51;
@@ -114,7 +114,7 @@
       background: var(--off-white);
     }
     .hero-eyebrow {
-      font-size: 0.88rem;
+      font-size: 1rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -123,6 +123,7 @@
     }
     .hero-name {
       font-family: 'Libre Franklin', sans-serif;
+      font-weight: 700;
       font-size: clamp(3rem, 5vw, 4.5rem);
       font-weight: 400;
       line-height: 1.05;
@@ -131,7 +132,7 @@
     }
     .hero-name em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest); }
     .hero-title {
-      font-size: 0.85rem;
+      font-size: 1rem;
       font-weight: 300;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -139,6 +140,14 @@
       margin-bottom: 2.5rem;
       padding-bottom: 2.5rem;
       border-bottom: 1px solid var(--cream-dark);
+    }
+    .hero-catchphrase {
+      font-size: 1.1rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
     }
     .hero-bio {
       font-size: 1.05rem;
@@ -457,8 +466,9 @@
   </div>
   <div class="hero-text fade-up">
     <p class="hero-eyebrow">Arlington, VA · Open to Opportunities</p>
-    <h1 class="hero-name">Antoine<br><em>Savelli</em></h1>
+    <h1 class="hero-name">Antoine <em>Savelli</em></h1>
     <p class="hero-title">Applied AI Engineering · Data Infrastructure · Research Analytics</p>
+    <p class="hero-catchphrase">I find inefficiencies. I build solutions.</p>
     <p class="hero-bio">
       I've spent five years in research. About a year in, I started replacing parts of it with code. The last two years have been about building AI into it: replacing legacy tools with LLM-based pipelines, automating workflows in Python and R, and building infrastructure that makes 'the old way' embarrassing.
     </p>
