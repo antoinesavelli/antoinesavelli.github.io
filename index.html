@@ -5,8 +5,20 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMzQ0QTNEIi8+CiAgPHRleHQgeD0iMTYiIHk9IjIyIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtc3R5bGU9Iml0YWxpYyIKICAgIGZpbGw9IiNGMkYyRjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIwLjUiPkFTPC90ZXh0Pgo8L3N2Zz4=" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antoine Savelli</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-ExtraBold.ttf') format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Black.ttf') format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-LightItalic.ttf') format('truetype'); font-weight: 300; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-BoldItalic.ttf') format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'DM Serif Display'; src: url('/fonts/DMSerifDisplay-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'DM Serif Display'; src: url('/fonts/DMSerifDisplay-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+  </style>
   <style>
     :root {
       --forest: #456B51;
@@ -123,14 +135,14 @@
     }
     .hero-name {
       font-family: 'Libre Franklin', sans-serif;
-      font-weight: 700;
+      font-weight: 900;
       font-size: clamp(3rem, 5vw, 4.5rem);
       font-weight: 400;
       line-height: 1.05;
       color: var(--charcoal);
       margin-bottom: 0.3rem;
     }
-    .hero-name em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest); }
+    .hero-name em { font-family: 'DM Serif Display', Georgia, serif; font-style: italic; color: var(--forest); font-weight: 400; }
     .hero-title {
       font-size: 1rem;
       font-weight: 300;
@@ -467,7 +479,7 @@
   <div class="hero-text fade-up">
     <p class="hero-eyebrow">Arlington, VA · Open to Opportunities</p>
     <h1 class="hero-name">Antoine <em>Savelli</em></h1>
-    <p class="hero-title">Applied AI Engineering · Data Infrastructure · Research Analytics</p>
+    <p class="hero-title">AI Implementation · Data Infrastructure · Research Analytics</p>
     <p class="hero-catchphrase">I find inefficiencies. I build solutions.</p>
     <p class="hero-bio">
       I've spent five years in research. About a year in, I started replacing parts of it with code. The last two years have been about building AI into it: replacing legacy tools with LLM-based pipelines, automating workflows in Python and R, and building infrastructure that makes 'the old way' embarrassing.
