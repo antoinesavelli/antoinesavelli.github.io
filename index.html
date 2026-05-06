@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMzQ0QTNEIi8+CiAgPHRleHQgeD0iMTYiIHk9IjIyIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtc3R5bGU9Iml0YWxpYyIKICAgIGZpbGw9IiNGMkYyRjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIwLjUiPkFTPC90ZXh0Pgo8L3N2Zz4=" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjNDU2QjUxIi8+CiAgPHRleHQgeD0iNyIgeT0iMjMiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGMkYyRjIiPkE8L3RleHQ+CiAgPHRleHQgeD0iMTciIHk9IjIzIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iI0YyRjJGMiI+UzwvdGV4dD4KPC9zdmc+" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antoine Savelli</title>
   <style>
@@ -54,17 +54,25 @@
     }
     .nav-brand {
       display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
+      align-items: baseline;
+      gap: 0;
       text-decoration: none;
     }
     .nav-name {
       font-family: 'Libre Franklin', sans-serif;
       font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+    .nav-last {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
       font-weight: 400;
       color: var(--forest);
-      letter-spacing: 0.04em;
-      line-height: 1;
+      letter-spacing: 0.01em;
     }
     .nav-subtitle {
       font-size: 0.62rem;
@@ -74,9 +82,9 @@
       color: var(--light);
       line-height: 1;
     }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links { display: flex; gap: 3rem; list-style: none; }
     .nav-links a {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -141,9 +149,9 @@
     }
     .hero-name em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest); font-weight: 400; }
     .hero-title {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 300;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--mid);
       margin-bottom: 2.5rem;
@@ -218,14 +226,41 @@
       margin-bottom: 3rem;
     }
     .green-title { color: var(--forest) !important; font-weight: 700 !important; }
+    .white-title { color: var(--cream) !important; font-weight: 700 !important; }
 
     /* PORTFOLIO */
     #portfolio { background: var(--cream); }
     .docs-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2px;
     }
+    .doc-card-featured {
+      grid-column: 1 / -1;
+      background: var(--forest);
+      padding: 3rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2px;
+    }
+    .doc-card-featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 3px;
+      background: var(--cream);
+      transition: width 0.3s;
+    }
+    .doc-card-featured:hover::before { width: 100%; }
+    .doc-card-featured:hover { background: var(--forest-mid); transform: translateY(-2px); }
+    .doc-card-featured .doc-number { color: rgba(242,242,242,0.5); }
+    .doc-card-featured .doc-title { color: var(--cream); font-size: 1.6rem; }
+    .doc-card-featured .doc-desc { color: rgba(242,242,242,0.8); font-size: 0.95rem; max-width: 700px; }
+    .doc-card-featured .doc-cta { color: var(--cream); font-size: 0.8rem; }
     .doc-card {
       background: var(--off-white);
       padding: 2.5rem 2rem;
@@ -452,6 +487,7 @@
       .contact-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem; }
+      .hero-title { font-size: 0.78rem; letter-spacing: 0.06em; }
     }
   </style>
 </head>
@@ -459,9 +495,7 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#">
-    <span class="nav-name">Antoine Savelli</span>
-  </a>
+  <a class="nav-brand" href="#"><span class="nav-name">Antoine</span><em class="nav-last"> Savelli</em></a>
   <ul class="nav-links">
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -493,28 +527,28 @@
 <section id="portfolio">
   <h2 class="section-title green-title fade-up">Portfolio</h2>
   <div class="docs-grid">
-    <a href="https://drive.google.com/file/d/1u-tGap72p3jAvo13iA71VRURiSem9l2H/view?usp=sharing" target="_blank" class="doc-card fade-up">
+    <a href="https://drive.google.com/file/d/14Y0NcO2cwdZTpFHjoWy9LrlVRw6LHmay/view?usp=sharing" target="_blank" class="doc-card-featured fade-up">
       <p class="doc-number">01</p>
-      <h3 class="doc-title">Resume</h3>
-      <p class="doc-desc">Research operations, AI implementation, and data infrastructure across market research firms, a university, and an independent project.</p>
-      <span class="doc-cta">View</span>
-    </a>
-    <a href="https://drive.google.com/file/d/14Y0NcO2cwdZTpFHjoWy9LrlVRw6LHmay/view?usp=sharing" target="_blank" class="doc-card fade-up">
-      <p class="doc-number">02</p>
       <h3 class="doc-title">AI Implementation in Action</h3>
       <p class="doc-desc">Case studies covering LLM-based pipeline deployment, Python and R automation, and live Tableau dashboard integration. Each entry documents the Challenge, Action, and Result.</p>
       <span class="doc-cta">View</span>
     </a>
     <a href="https://drive.google.com/file/d/1VVJjyaAfFkFP3aEwU5N_zMSpKkuULsmL/view?usp=sharing" target="_blank" class="doc-card fade-up">
-      <p class="doc-number">03</p>
+      <p class="doc-number">02</p>
       <h3 class="doc-title">PARAMO – Self-Built Trading Research System</h3>
       <p class="doc-desc">A Python-based codebase built entirely outside of work from scratch with no team, no budget, and no playbook. Backtests pattern-based strategies across thousands of stocks using a custom scoring engine.</p>
       <span class="doc-cta">View</span>
     </a>
     <a href="https://drive.google.com/file/d/1xyuXws9u3oc-PJpEZVxljkZfq-j6ZhwU/view?usp=drive_link" target="_blank" class="doc-card fade-up">
-      <p class="doc-number">04</p>
+      <p class="doc-number">03</p>
       <h3 class="doc-title">Cognitive Profile</h3>
       <p class="doc-desc">Based on one of the longest-running and most cited human aptitude studies in the US. Documents three 99th percentile cognitive strengths and how they apply in practice.</p>
+      <span class="doc-cta">View</span>
+    </a>
+    <a href="https://drive.google.com/file/d/1u-tGap72p3jAvo13iA71VRURiSem9l2H/view?usp=sharing" target="_blank" class="doc-card fade-up">
+      <p class="doc-number">04</p>
+      <h3 class="doc-title">Resume</h3>
+      <p class="doc-desc">Five years of research and operations. Every layer of the stack. The full picture.</p>
       <span class="doc-cta">View</span>
     </a>
   </div>
@@ -522,7 +556,7 @@
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2 class="section-title fade-up">Skills &amp; Tools</h2>
+  <h2 class="section-title green-title fade-up">Skills &amp; Tools</h2>
   <div class="skills-table">
 
     <div class="skills-row fade-up">
@@ -560,7 +594,7 @@
 
 <!-- CONNECT -->
 <section id="connect">
-  <h2 class="section-title fade-up">Get in Touch</h2>
+  <h2 class="section-title white-title fade-up">Get in Touch</h2>
   <div class="links-row">
     <a href="tel:+14088333360" class="link-card fade-up">
       <div class="link-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
@@ -611,7 +645,7 @@
 <!-- FOOTER -->
 <footer>
   <p>2026 Antoine Savelli · Arlington, VA</p>
-  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.7.4</p>
+  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.7.9</p>
 </footer>
 
 <script>
