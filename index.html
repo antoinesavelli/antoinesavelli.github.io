@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjNDU2QjUxIi8+CiAgPHRleHQgeD0iNyIgeT0iMjMiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGMkYyRjIiPkE8L3RleHQ+CiAgPHRleHQgeD0iMTciIHk9IjIzIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iI0YyRjJGMiI+UzwvdGV4dD4KPC9zdmc+" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjRjJGMkYyIi8+CiAgPHRleHQgeD0iMyIgeT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxYzFjMWMiPkE8L3RleHQ+CiAgPHRleHQgeD0iMTYiIHk9IjI0IiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iIzQ1NkI1MSI+UzwvdGV4dD4KPC9zdmc+" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antoine Savelli</title>
   <style>
@@ -98,7 +98,7 @@
     .hero {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(300px, 1fr) minmax(400px, 1fr);
       padding-top: 72px;
     }
     .hero-photo {
@@ -130,6 +130,7 @@
       justify-content: center;
       padding: 5rem 5rem 5rem 4rem;
       background: var(--off-white);
+      min-width: 0;
     }
     .hero-eyebrow {
       font-size: 1rem;
@@ -227,6 +228,7 @@
     }
     .green-title { color: var(--forest) !important; font-weight: 700 !important; }
     .white-title { color: var(--cream) !important; font-weight: 700 !important; }
+    #connect .section-title { color: var(--cream); font-weight: 700; }
 
     /* PORTFOLIO */
     #portfolio { background: var(--cream); }
@@ -616,6 +618,7 @@
   <div class="contact-grid">
     <div class="contact-info-block fade-up">
       <p>Open to AI implementation, research operations, and analyst roles where the work involves building real solutions to complex problems. Reach out directly or use the form.</p>
+      <p style="font-size: 0.82rem; font-weight: 400; color: rgba(242,242,242,0.55); letter-spacing: 0.1em; text-transform: uppercase; margin-top: -1rem;">Arlington, VA &nbsp;·&nbsp; Open to Remote</p>
     </div>
     <form class="contact-form fade-up" id="contactForm" action="https://formspree.io/f/mrejgyyj" method="POST">
       <div class="form-row">
@@ -644,8 +647,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>2026 Antoine Savelli · Arlington, VA</p>
-  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.7.9</p>
+  <p>© 2026 Antoine Savelli</p>
+  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.7.13</p>
 </footer>
 
 <script>
