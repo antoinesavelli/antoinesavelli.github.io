@@ -241,8 +241,12 @@
       grid-column: 1 / -1;
       background: var(--forest);
       padding: 3rem 3.5rem;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: auto 1fr auto;
+      column-gap: 3rem;
+      align-items: start;
+      min-height: 180px;
       text-decoration: none;
       transition: background 0.2s, transform 0.2s;
       position: relative;
@@ -259,10 +263,10 @@
     }
     .doc-card-featured:hover::before { width: 100%; }
     .doc-card-featured:hover { background: var(--forest-mid); transform: translateY(-2px); }
-    .doc-card-featured .doc-number { color: rgba(242,242,242,0.5); }
-    .doc-card-featured .doc-title { color: var(--cream); font-size: 1.6rem; }
-    .doc-card-featured .doc-desc { color: rgba(242,242,242,0.8); font-size: 0.95rem; max-width: 700px; }
-    .doc-card-featured .doc-cta { color: var(--cream); font-size: 0.8rem; }
+    .doc-card-featured .doc-number { color: rgba(242,242,242,0.5); grid-column: 1; grid-row: 1; }
+    .doc-card-featured .doc-title { color: var(--cream); font-size: 1.6rem; grid-column: 1; grid-row: 2; align-self: start; }
+    .doc-card-featured .doc-desc { color: rgba(242,242,242,0.85); font-size: 1.05rem; grid-column: 2; grid-row: 1 / 3; align-self: center; margin: 0; }
+    .doc-card-featured .doc-cta { color: var(--cream); font-size: 0.8rem; grid-column: 1; grid-row: 3; align-self: end; margin-top: 1.5rem; }
     .doc-card {
       background: var(--off-white);
       padding: 2.5rem 2rem;
@@ -331,6 +335,12 @@
       gap: 2rem;
     }
     .skills-row:last-child { border-bottom: 1px solid var(--cream-dark); }
+    .skills-category-link {
+      text-decoration: none;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .skills-category-link:hover { opacity: 0.7; }
     .skills-category-name {
       font-size: 0.9rem;
       font-weight: 600;
@@ -532,7 +542,7 @@
     <a href="https://drive.google.com/file/d/14Y0NcO2cwdZTpFHjoWy9LrlVRw6LHmay/view?usp=sharing" target="_blank" class="doc-card-featured fade-up">
       <p class="doc-number">01</p>
       <h3 class="doc-title">AI Implementation in Action</h3>
-      <p class="doc-desc">Case studies covering LLM-based pipeline deployment, Python and R automation, and live Tableau dashboard integration. Each entry documents the Challenge, Action, and Result.</p>
+      <p class="doc-desc">Three projects. A replaced $50k contract, an automated data pipeline, and a live Tableau infrastructure built from scratch. Each entry documents the found inefficiency, the built solution, and the result.</p>
       <span class="doc-cta">View</span>
     </a>
     <a href="https://drive.google.com/file/d/1VVJjyaAfFkFP3aEwU5N_zMSpKkuULsmL/view?usp=sharing" target="_blank" class="doc-card fade-up">
@@ -544,7 +554,7 @@
     <a href="https://drive.google.com/file/d/1xyuXws9u3oc-PJpEZVxljkZfq-j6ZhwU/view?usp=drive_link" target="_blank" class="doc-card fade-up">
       <p class="doc-number">03</p>
       <h3 class="doc-title">Cognitive Profile</h3>
-      <p class="doc-desc">Based on one of the longest-running and most cited human aptitude studies in the US. Documents three 99th percentile cognitive strengths and how they apply in practice.</p>
+      <p class="doc-desc">A performance-based aptitude assessment — not a personality quiz. Five scored abilities, three at the 99th percentile, with a written case for how each one shows up specifically in AI implementation work.</p>
       <span class="doc-cta">View</span>
     </a>
     <a href="https://drive.google.com/file/d/1u-tGap72p3jAvo13iA71VRURiSem9l2H/view?usp=sharing" target="_blank" class="doc-card fade-up">
@@ -587,8 +597,8 @@
     </div>
 
     <div class="skills-row fade-up">
-      <p class="skills-category-name">Cognitive Profile</p>
-      <p class="skills-values">Spotting Patterns in Data <span>/</span> Long-Range Planning <span>/</span> Breaking Down Complex Problems <span>/</span> Systems Thinking <span>/</span> Independent Problem Solving</p>
+      <a href="https://drive.google.com/file/d/1xyuXws9u3oc-PJpEZVxljkZfq-j6ZhwU/view?usp=drive_link" target="_blank" class="skills-category-name skills-category-link">Cognitive Profile ↗</a>
+      <p class="skills-values">Inductive Reasoning <span>/</span> Foresight <span>/</span> Analytical Reasoning <span>/</span> Systems Thinking <span>/</span> Independent Problem Solving</p>
     </div>
 
   </div>
@@ -648,7 +658,7 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Antoine Savelli</p>
-  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.7.13</p>
+  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.7.19</p>
 </footer>
 
 <script>
