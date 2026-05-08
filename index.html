@@ -264,7 +264,7 @@
     .doc-card-featured:hover::before { width: 100%; }
     .doc-card-featured:hover { background: var(--forest-mid); transform: translateY(-2px); }
     .doc-card-featured .doc-number { color: rgba(242,242,242,0.5); grid-column: 1; grid-row: 1; }
-    .doc-card-featured .doc-title { color: var(--cream); font-size: 1.6rem; grid-column: 1; grid-row: 2; align-self: start; }
+    .doc-card-featured .doc-title { color: var(--cream); font-size: 2rem; font-weight: 700; grid-column: 1; grid-row: 2; align-self: start; }
     .doc-card-featured .doc-desc { color: rgba(242,242,242,0.85); font-size: 1.05rem; grid-column: 2; grid-row: 1 / 3; align-self: center; margin: 0; }
     .doc-card-featured .doc-cta { color: var(--cream); font-size: 0.8rem; grid-column: 1; grid-row: 3; align-self: end; margin-top: 1.5rem; }
     .doc-card {
@@ -538,6 +538,25 @@
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem; }
       .hero-title { font-size: 0.78rem; letter-spacing: 0.06em; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .nav-links a { font-size: 0.72rem; }
+      section { padding: 3rem 1.5rem; }
+      .hero-text { padding: 3rem 1.5rem; }
+      .hero-name { font-size: clamp(2.2rem, 10vw, 4.5rem); }
+      .hero-catchphrase { font-size: 1.2rem; }
+      .docs-grid { grid-template-columns: 1fr; }
+      .doc-card-featured { grid-template-columns: 1fr; }
+      .doc-card-featured .doc-number { grid-column: 1; grid-row: 1; }
+      .doc-card-featured .doc-title { grid-column: 1; grid-row: 2; }
+      .doc-card-featured .doc-desc { grid-column: 1; grid-row: 3; }
+      .doc-card-featured .doc-cta { grid-column: 1; grid-row: 4; margin-top: 1rem; }
+      .skills-row { grid-template-columns: 140px 1fr; gap: 1rem; }
+      .links-row { flex-direction: column; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .credentials-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .credentials-links { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -589,11 +608,18 @@
       <p class="doc-desc">A Python-based codebase built entirely outside of work from scratch with no team, no budget, and no playbook. Backtests pattern-based strategies across thousands of stocks using a custom scoring engine.</p>
       <span class="doc-cta">View</span>
     </a>
-    <a href="https://drive.google.com/file/d/1xyuXws9u3oc-PJpEZVxljkZfq-j6ZhwU/view?usp=drive_link" target="_blank" class="doc-card fade-up">
+    <div class="doc-card fade-up" style="cursor:default;">
       <p class="doc-number">03</p>
       <h3 class="doc-title">Cognitive Profile</h3>
       <p class="doc-desc">A performance-based aptitude assessment — not a personality quiz. Five scored abilities, three at the 99th percentile, with a written case for how each one shows up specifically in AI implementation work.</p>
-      <span class="doc-cta">View</span>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:1.5rem;">
+        <a href="https://drive.google.com/file/d/1xyuXws9u3oc-PJpEZVxljkZfq-j6ZhwU/view?usp=drive_link" target="_blank" class="doc-cta" style="text-decoration:none;">View</a>
+        <a href="/cognitive-profile.html" style="font-size:0.68rem; color:var(--forest-light); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; transition:color 0.2s; white-space:nowrap;" onmouseover="this.style.color='var(--forest)'" onmouseout="this.style.color='var(--forest-light)'">Full Report 🔒</a>
+      </div>
+    </div>
+      </div>
+    </a>
+      </div>
     </a>
     <a href="https://drive.google.com/file/d/1u-tGap72p3jAvo13iA71VRURiSem9l2H/view?usp=sharing" target="_blank" class="doc-card fade-up">
       <p class="doc-number">04</p>
@@ -608,6 +634,12 @@
       <a href="https://www.parchment.com/lp/award/d5371985-55c0-4e4a-a760-8be5e1e79c0a" target="_blank" class="credential-link">B.S. Applied Psychology <span>↗</span></a>
       <span class="credentials-sep">/</span>
       <a href="https://www.parchment.com/lp/award/d1fb6d1d-482d-42a7-8970-82ba114538c1" target="_blank" class="credential-link">Minor, Applied Statistics <span>↗</span></a>
+    </div>
+  </div>
+  <div class="credentials-row">
+    <p class="credentials-label"><a href="/references.html" style="color:var(--forest); text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">References 🔒</a></p>
+    <div class="credentials-links">
+      <span style="font-size:0.88rem; font-weight:300; color:var(--mid); letter-spacing:0.02em;">Available upon request. Contact Antoine for access.</span>
     </div>
   </div>
 </section>
@@ -704,7 +736,7 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Antoine Savelli</p>
-  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.7.23</p>
+  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.8.5</p>
 </footer>
 
 <script>
