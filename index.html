@@ -234,9 +234,11 @@
     #portfolio { background: var(--cream); }
     .docs-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2px;
+      row-gap: 4px;
     }
+
     .doc-card-featured {
       grid-column: 1 / -1;
       background: var(--forest);
@@ -251,7 +253,6 @@
       transition: background 0.2s, transform 0.2s;
       position: relative;
       overflow: hidden;
-      margin-bottom: 2px;
     }
     .doc-card-featured::before {
       content: '';
@@ -263,6 +264,8 @@
     }
     .doc-card-featured:hover::before { width: 100%; }
     .doc-card-featured:hover { background: var(--forest-mid); transform: translateY(-2px); }
+    .doc-card { border-right: 2px solid var(--cream); }
+    .doc-card:nth-of-type(even) { border-right: none; }
     .doc-card-featured .doc-number { color: rgba(242,242,242,0.5); grid-column: 1; grid-row: 1; }
     .doc-card-featured .doc-title { color: var(--cream); font-size: 2rem; font-weight: 700; grid-column: 1; grid-row: 2; align-self: start; }
     .doc-card-featured .doc-desc { color: rgba(242,242,242,0.85); font-size: 1.05rem; grid-column: 2; grid-row: 1 / 3; align-self: center; margin: 0; }
@@ -602,13 +605,13 @@
       <p class="doc-desc">Three projects. A replaced $50k contract, an automated data pipeline, and a live Tableau infrastructure built from scratch. Each one documents an inefficiency I identified, a solution I built, and a result I measured.</p>
       <span class="doc-cta">View</span>
     </a>
-    <a href="https://drive.google.com/file/d/1VVJjyaAfFkFP3aEwU5N_zMSpKkuULsmL/view?usp=sharing" target="_blank" class="doc-card fade-up">
+    <a href="https://drive.google.com/file/d/1VVJjyaAfFkFP3aEwU5N_zMSpKkuULsmL/view?usp=sharing" target="_blank" class="doc-card fade-up" style="margin-top: 2px;">
       <p class="doc-number">02</p>
       <h3 class="doc-title">PARAMO – Self-Built Trading Research System</h3>
       <p class="doc-desc">A Python-based codebase built entirely outside of work from scratch with no team, no budget, and no playbook. Backtests pattern-based strategies across thousands of stocks using a custom scoring engine.</p>
       <span class="doc-cta">View</span>
     </a>
-    <div class="doc-card fade-up" style="cursor:default;">
+    <div class="doc-card fade-up" style="cursor:default; border-right: none; margin-top: 2px;">
       <p class="doc-number">03</p>
       <h3 class="doc-title">Cognitive Profile</h3>
       <p class="doc-desc">A performance-based aptitude assessment — not a personality quiz. Five scored abilities, three at the 99th percentile, with a written case for how each one shows up specifically in AI implementation work.</p>
@@ -621,7 +624,7 @@
     </a>
       </div>
     </a>
-    <a href="https://drive.google.com/file/d/1u-tGap72p3jAvo13iA71VRURiSem9l2H/view?usp=sharing" target="_blank" class="doc-card fade-up">
+    <a href="https://drive.google.com/file/d/1u-tGap72p3jAvo13iA71VRURiSem9l2H/view?usp=sharing" target="_blank" class="doc-card fade-up" style="grid-column: 1 / -1; margin-top: 2px; border-right: none;">
       <p class="doc-number">04</p>
       <h3 class="doc-title">Resume</h3>
       <p class="doc-desc">Five years of research and operations. Every layer of the stack. The full picture.</p>
@@ -736,7 +739,7 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Antoine Savelli</p>
-  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.8.5</p>
+  <p style="font-size: 0.65rem; color: #888; letter-spacing: 0.08em;">v1.9.1</p>
 </footer>
 
 <script>
