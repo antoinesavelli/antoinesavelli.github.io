@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>References · Antoine Savelli</title>
+  <style>
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'DM Serif Display'; src: url('/fonts/DMSerifDisplay-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+    :root {
+      --forest: #456B51; --forest-mid: #4a6b59; --forest-light: #6a9178;
+      --cream: #F2F2F2; --cream-dark: #e6e6e1; --off-white: #fafaf8;
+      --charcoal: #1c1c1c; --mid: #5a5a5a; --light: #9a9a9a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Libre Franklin', Arial, sans-serif; background: var(--off-white); color: var(--charcoal); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(250,250,248,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(69,107,81,0.12); }
+    .nav-brand { font-family: 'Libre Franklin', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--charcoal); text-decoration: none; }
+    .nav-brand em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest); font-weight: 400; }
+    .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--forest); }
+    #gate { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+    .gate-box { max-width: 420px; width: 100%; text-align: center; }
+    .gate-lock { font-size: 2rem; margin-bottom: 1.5rem; color: var(--forest-light); }
+    .gate-title { font-size: 1.4rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.5rem; }
+    .gate-sub { font-size: 0.88rem; font-weight: 300; color: var(--mid); margin-bottom: 2rem; line-height: 1.6; }
+    .gate-input { font-family: 'Libre Franklin', sans-serif; font-size: 0.95rem; width: 100%; padding: 0.9rem 1rem; border: 1.5px solid var(--cream-dark); background: var(--cream); color: var(--charcoal); outline: none; text-align: center; letter-spacing: 0.05em; transition: border-color 0.2s; margin-bottom: 1rem; }
+    .gate-input:focus { border-color: var(--forest); }
+    .gate-input.error { border-color: #c0392b; }
+    .gate-btn { font-family: 'Libre Franklin', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; width: 100%; padding: 0.9rem; background: var(--forest); color: var(--cream); border: none; cursor: pointer; transition: background 0.2s; }
+    .gate-btn:hover { background: var(--forest-mid); }
+    .gate-error { font-size: 0.78rem; color: #c0392b; margin-top: 0.75rem; display: none; }
+    #content { display: none; padding: 8rem 6rem 5rem; max-width: 900px; margin: 0 auto; }
+    .ref-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid var(--forest); }
+    .ref-eyebrow { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--forest-light); margin-bottom: 0.75rem; }
+    .ref-page-title { font-size: 2rem; font-weight: 700; color: var(--charcoal); }
+    .ref-page-title em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest); font-weight: 400; }
+    .ref-card { padding: 2rem 0; border-bottom: 1px solid var(--cream-dark); }
+    .ref-name { font-size: 1.1rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.2rem; }
+    .ref-role { font-size: 0.82rem; font-weight: 400; color: var(--forest); letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .ref-relationship { font-size: 0.9rem; font-weight: 300; color: var(--mid); line-height: 1.75; margin-bottom: 0.75rem; }
+    .ref-contact { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .ref-contact a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--forest); text-decoration: none; transition: opacity 0.2s; }
+    .ref-contact a:hover { opacity: 0.7; }
+    .ref-note { margin-top: 3rem; font-size: 0.78rem; color: var(--light); letter-spacing: 0.04em; line-height: 1.7; }
+    footer { background: var(--charcoal); padding: 1.5rem 6rem; display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; }
+    footer p { font-size: 0.72rem; color: var(--light); }
+    @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } #content { padding: 6rem 1.5rem 3rem; } footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; text-align: center; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/">Antoine <em>Savelli</em></a>
+  <a class="nav-back" href="/">← Portfolio</a>
+</nav>
+
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-lock">🔒</div>
+    <h1 class="gate-title">References</h1>
+    <p class="gate-sub">This page is passcode protected. If you've received a passcode from Antoine, enter it below.</p>
+    <input type="password" class="gate-input" id="passcode" placeholder="Enter passcode" />
+    <button class="gate-btn" onclick="checkPasscode()">Access References</button>
+    <p class="gate-error" id="gate-error">Incorrect passcode. Please try again or contact Antoine directly.</p>
+  </div>
+</div>
+
+<div id="content">
+  <div class="ref-header">
+    <p class="ref-eyebrow">Confidential · Available Upon Request</p>
+    <h1 class="ref-page-title">References for Antoine <em>Savelli</em></h1>
+  </div>
+
+  <div class="ref-card">
+    <p class="ref-name">Erjon Gjoci</p>
+    <p class="ref-role">Direct Manager · HarrisX</p>
+    <p class="ref-relationship">Erjon was my direct report during my time as a Research Analyst at HarrisX. He oversaw and approved my coding overhauls and Excel automations, and was the primary decision-maker who signed off on the work I built independently.</p>
+    <div class="ref-contact">
+      <a href="mailto:gjocierjon@gmail.com">gjocierjon@gmail.com</a>
+      <a href="tel:+16464934931">646 493 4931</a>
+      <a href="https://linkedin.com/in/erjongjoci" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="ref-card">
+    <p class="ref-name">Cassandra Golda</p>
+    <p class="ref-role">Head of Data Analytics · SimpsonScarborough</p>
+    <p class="ref-relationship">Cassandra led the data analytics function at SimpsonScarborough and I worked closely with her on the analytics side of our research operations. After she departed, I became the primary owner of the survey data pipeline she had overseen — a direct result of the infrastructure work I had built alongside her.</p>
+    <div class="ref-contact">
+      <a href="tel:+15858131867">585 813 1867</a>
+      <a href="https://linkedin.com/in/cassandragolda" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="ref-card">
+    <p class="ref-name">LauraBeth DeHority</p>
+    <p class="ref-role">PhD Researcher · Stanford University</p>
+    <p class="ref-relationship">During my time supporting research operations at Stanford, I built a custom keyword and phrase-matching tool in Excel that enabled LauraBeth to extract thematic patterns across 70+ qualitative studies simultaneously — a tool she used directly in her doctoral research.</p>
+    <div class="ref-contact">
+      <a href="mailto:lbdehority@gmail.com">lbdehority@gmail.com</a>
+      <a href="tel:+14084422666">(408) 442-2666</a>
+    </div>
+  </div>
+
+  <p class="ref-note">These references are provided in confidence. Please do not share this page or passcode without Antoine's permission.</p>
+</div>
+
+<footer>
+  <p>© 2026 Antoine Savelli</p>
+  <p>antoine-savelli.com/references</p>
+</footer>
+
+<script>
+  document.getElementById('passcode').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPasscode();
+  });
+  function checkPasscode() {
+    const input = document.getElementById('passcode').value;
+    const error = document.getElementById('gate-error');
+    const inputEl = document.getElementById('passcode');
+    if (hashCode(input) === 1805874183) {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+      error.style.display = 'none';
+    } else {
+      inputEl.classList.add('error');
+      error.style.display = 'block';
+      inputEl.value = '';
+      setTimeout(() => inputEl.classList.remove('error'), 1500);
+    }
+  }
+  function hashCode(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) - hash) + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return hash;
+  }
+</script>
+</body>
+</html>
