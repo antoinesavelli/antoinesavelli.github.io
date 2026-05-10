@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Implementation in Action -- Antoine Savelli</title>
+  <style>
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'DM Serif Display'; src: url('/fonts/DMSerifDisplay-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+    :root {
+      --forest: #456B51; --forest-mid: #4a6b59; --forest-light: #6a9178;
+      --cream: #F2F2F2; --cream-dark: #e6e6e1; --off-white: #fafaf8;
+      --charcoal: #1c1c1c; --mid: #5a5a5a; --light: #9a9a9a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Libre Franklin', Arial, sans-serif; background: var(--off-white); color: var(--charcoal); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(250,250,248,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(69,107,81,0.12); }
+    .nav-brand { font-family: 'Libre Franklin', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--charcoal); text-decoration: none; }
+    .nav-brand em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest); font-weight: 400; }
+    .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--forest); }
+
+    .page-hero { padding: 7rem 6rem 0; border-bottom: 3px solid var(--charcoal); background: var(--off-white); }
+    .hero-kicker { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.75rem; }
+    .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: var(--charcoal); line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .hero-deck { font-size: 1rem; font-weight: 300; color: var(--mid); line-height: 1.7; max-width: 600px; padding-bottom: 2rem; }
+
+    .cases { background: var(--off-white); }
+    .case { border-bottom: 1px solid var(--cream-dark); padding: 3.5rem 6rem; }
+    .case:last-child { border-bottom: none; }
+    .case-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .case-num { font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; color: var(--cream-dark); line-height: 1; letter-spacing: -0.04em; flex-shrink: 0; }
+    .case-title { font-size: 1.3rem; font-weight: 700; color: var(--charcoal); line-height: 1.2; }
+
+    .iar { display: grid; grid-template-columns: auto 1fr; }
+    .iar-label {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 1.6rem 1.8rem 1.6rem 0; border-top: 1px solid var(--cream-dark);
+      display: flex; align-items: flex-start; color: var(--charcoal); white-space: nowrap;
+    }
+    .iar-label.result-label {
+      color: #fff; background: var(--forest); padding: 1.6rem 1.2rem; white-space: nowrap;
+    }
+    .iar-content {
+      font-size: 0.93rem; font-weight: 300; color: var(--mid); line-height: 1.85;
+      padding: 1.6rem 0; border-top: 1px solid var(--cream-dark);
+    }
+    .iar-content.result-content {
+      font-weight: 500; color: var(--charcoal);
+      background: var(--cream); padding: 1.6rem 1.8rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .pdf-bar { background: var(--charcoal); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; }
+    .pdf-label { font-size: 0.78rem; color: var(--light); }
+    .pdf-link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); text-decoration: none; padding: 0.65rem 1.5rem; border: 1px solid rgba(242,242,242,0.3); transition: all 0.2s; }
+    .pdf-link:hover { background: var(--forest); border-color: var(--forest); }
+    footer { background: var(--charcoal); padding: 1.2rem 6rem; display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); }
+    footer p { font-size: 0.72rem; color: var(--light); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .page-hero, .case, .pdf-bar, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page-hero { padding-top: 5rem; }
+      .case-num { font-size: 2.5rem; }
+      .case-title { font-size: 1rem; }
+      .pdf-bar { flex-direction: column; gap: 1rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/">Antoine <em>Savelli</em></a>
+  <a class="nav-back" href="/">← Portfolio</a>
+</nav>
+
+<div class="page-hero">
+  <p class="hero-kicker">AI Implementation · SimpsonScarborough · 2024–2025</p>
+  <h1 class="hero-title">AI Implementation<br>in Action</h1>
+  <p class="hero-deck">The three case studies below are drawn from my direct professional experience. Each one started with an inefficiency I identified, a solution I built, and a result I measured.</p>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="case-header">
+      <div class="case-num">01</div>
+      <h2 class="case-title">Replacing a Specialized Research Tool with an AI Solution</h2>
+    </div>
+    <div class="iar">
+      <div class="iar-label">Inefficiency</div>
+      <div class="iar-content">The research team at SimpsonScarborough depended on a $50k third-party platform to analyze open-ended survey responses. It created an ongoing vendor dependency and added cost without adding flexibility.</div>
+      <div class="iar-label">Solution</div>
+      <div class="iar-content">Built a LLM-based replacement and validated it against pre-coded datasets spanning multiple client projects, comparing thematic groupings and sentiment classifications against manually reviewed outputs to establish a measurable accuracy benchmark.</div>
+      <div class="iar-label result-label">Result</div>
+      <div class="iar-content result-content">LLM-based analysis came within 5–10% of the contracted platform across both dimensions. Presented findings to a decision-maker who approved the switch, eliminating the vendor contract and retaining full capability in-house at effectively zero marginal cost.</div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-header">
+      <div class="case-num">02</div>
+      <h2 class="case-title">Automating Repetitive Data Work Through Vibe Coding</h2>
+    </div>
+    <div class="iar">
+      <div class="iar-label">Inefficiency</div>
+      <div class="iar-content">Research projects at SimpsonScarborough involved recurring data preparation tasks such as cleaning survey exports, standardizing formats, and prepping files for analysis. These steps were time-consuming and prone to human errors.</div>
+      <div class="iar-label">Solution</div>
+      <div class="iar-content">Used AI tools to write and refine Python and R scripts that automated the most repetitive parts of the data cleaning process. Rather than building each script from scratch manually, used AI as a coding partner to generate, test, and adjust the logic.</div>
+      <div class="iar-label result-label">Result</div>
+      <div class="iar-content result-content">Reduced data preparation time by two to eight hours per project cycle depending on scope, and made the process more repeatable across projects. Demonstrated a practical model for how AI can extend a team's technical capacity without requiring everyone to be a programmer.</div>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="case-header">
+      <div class="case-num">03</div>
+      <h2 class="case-title">Eliminating Manual Data Pulls with an AI-Assisted Pipeline</h2>
+    </div>
+    <div class="iar">
+      <div class="iar-label">Inefficiency</div>
+      <div class="iar-content">The Data Operations team at SimpsonScarborough manually pulled survey data on a recurring basis to feed reporting, creating a bottleneck that slowed turnaround and introduced room for human error.</div>
+      <div class="iar-label">Solution</div>
+      <div class="iar-content">Used AI tools to navigate the architecture of the Qualtrics API, analyze third-party vendor documentation, and work through advanced configuration problems in Tableau. Built a pipeline connecting the survey platform to Google BigQuery and surfaced the data through a live dashboard, automating the full data flow.</div>
+      <div class="iar-label result-label">Result</div>
+      <div class="iar-content result-content">Eliminated daily manual data pulls for the Data Operations team entirely, creating a real-time self-updating reporting system that required no ongoing analyst intervention.</div>
+    </div>
+  </div>
+</div>
+
+<div class="pdf-bar">
+  <p class="pdf-label">Download the PDF version</p>
+  <a href="https://drive.google.com/uc?export=download&id=14Y0NcO2cwdZTpFHjoWy9LrlVRw6LHmay" class="pdf-link">Download PDF</a>
+</div>
+<footer>
+  <p>© 2026 Antoine Savelli</p>
+  <p>v2.0</p>
+</footer>
+</body>
+</html>
