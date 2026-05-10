@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cognitive Case for AI Implementation -- Antoine Savelli</title>
+  <style>
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'DM Serif Display'; src: url('/fonts/DMSerifDisplay-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'DM Serif Display'; src: url('/fonts/DMSerifDisplay-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    :root {
+      --forest: #456B51; --forest-mid: #4a6b59; --forest-light: #6a9178;
+      --cream: #F2F2F2; --cream-dark: #e6e6e1; --off-white: #fafaf8;
+      --charcoal: #1c1c1c; --mid: #5a5a5a; --light: #9a9a9a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Libre Franklin', Arial, sans-serif; background: var(--off-white); color: var(--charcoal); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(250,250,248,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(69,107,81,0.12); }
+    .nav-brand { font-family: 'Libre Franklin', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--charcoal); text-decoration: none; }
+    .nav-brand em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest); font-weight: 400; }
+    .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--forest); }
+
+    .page-hero { padding: 7rem 6rem 3rem; border-bottom: 2px solid var(--forest); background: var(--off-white); }
+    .hero-pre { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--forest-light); margin-bottom: 1rem; }
+    .hero-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--charcoal); margin-bottom: 1.2rem; line-height: 1.1; }
+    .hero-intro { font-size: 1rem; font-weight: 300; color: var(--mid); line-height: 1.85; max-width: 660px; }
+
+    .score-strip { display: grid; grid-template-columns: repeat(5, 1fr); background: var(--forest); }
+    .score-cell { padding: 2rem 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+    .score-cell:last-child { border-right: none; }
+    .score-n { font-size: 2.8rem; font-weight: 700; color: #fff; line-height: 1; }
+    .score-n.muted { opacity: 0.65; }
+    .score-th { font-size: 0.85rem; color: rgba(242,242,242,0.6); }
+    .score-name { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,242,242,0.55); margin-top: 0.5rem; line-height: 1.4; }
+    .score-note { background: var(--forest); padding: 0.75rem 2rem 1.2rem; font-size: 0.72rem; color: rgba(242,242,242,0.35); font-style: italic; text-align: center; }
+
+    .joc-bar { background: var(--cream); padding: 1.5rem 6rem; border-bottom: 1px solid var(--cream-dark); }
+    .joc-text { font-size: 0.82rem; font-weight: 300; color: var(--mid); line-height: 1.75; }
+    .joc-text strong { color: var(--charcoal); font-weight: 500; }
+
+    .aptitudes { padding: 3.5rem 6rem; }
+    .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--forest); margin-bottom: 2.5rem; }
+    .aptitude { border-top: 1px solid var(--cream-dark); padding: 2.5rem 0; display: grid; grid-template-columns: 180px 1fr; gap: 3rem; align-items: baseline; }
+    .aptitude:last-child { border-bottom: 1px solid var(--cream-dark); }
+    .apt-header { }
+    .apt-name { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.4rem; }
+    .apt-pct { font-size: 1.1rem; font-weight: 700; color: var(--charcoal); }
+    .apt-pct.muted { color: var(--light); }
+    .apt-desc { font-size: 0.93rem; font-weight: 300; color: var(--mid); line-height: 1.85; }
+
+    .body-section { padding: 3.5rem 6rem; border-top: 1px solid var(--cream-dark); }
+    .body-text { font-size: 0.93rem; font-weight: 300; color: var(--mid); line-height: 1.9; max-width: 760px; }
+    .body-text strong { color: var(--charcoal); font-weight: 500; }
+
+    .quote-section { background: var(--charcoal); padding: 4rem 6rem; }
+    .quote-text { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.5rem; color: rgba(242,242,242,0.85); line-height: 1.5; max-width: 600px; margin-bottom: 1rem; }
+    .quote-attr { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(242,242,242,0.3); }
+
+    .about-section { background: var(--cream); padding: 3rem 6rem; border-top: 1px solid var(--cream-dark); }
+    .about-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--forest); margin-bottom: 1.2rem; }
+    .about-text { font-size: 0.85rem; font-weight: 300; color: var(--mid); line-height: 1.85; max-width: 760px; }
+    .about-text strong { color: var(--charcoal); font-weight: 500; }
+
+    .pdf-bar { background: var(--charcoal); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; }
+    .pdf-label { font-size: 0.78rem; color: var(--light); }
+    .pdf-link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); text-decoration: none; padding: 0.65rem 1.5rem; border: 1px solid rgba(242,242,242,0.3); transition: all 0.2s; }
+    .pdf-link:hover { background: var(--forest); border-color: var(--forest); }
+    footer { background: var(--charcoal); padding: 1.2rem 6rem; display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); }
+    footer p { font-size: 0.72rem; color: var(--light); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .page-hero, .joc-bar, .aptitudes, .body-section, .quote-section, .about-section, .pdf-bar, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page-hero { padding-top: 5.5rem; }
+      .score-strip { grid-template-columns: repeat(3, 1fr); }
+      .aptitude { grid-template-columns: 1fr; gap: 0.5rem; }
+      .pdf-bar { flex-direction: column; gap: 1rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+    @media (max-width: 600px) { .score-strip { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/">Antoine <em>Savelli</em></a>
+  <a class="nav-back" href="/">← Portfolio</a>
+</nav>
+
+<div class="page-hero">
+  <p class="hero-pre">Johnson O'Connor Research Foundation · March 2026</p>
+  <h1 class="hero-title">Cognitive Case for AI Implementation</h1>
+  <p class="hero-intro">AI moves faster than experience can accumulate. The question of what actually makes someone good at working with it, beyond knowing the tools, doesn't have an obvious answer yet. This is my answer to that question: not a certification or job title, but an expertly measured cognitive profile.</p>
+</div>
+
+<div class="score-strip">
+  <div class="score-cell">
+    <div class="score-n">99<span class="score-th">th</span></div>
+    <p class="score-name">Inductive Reasoning</p>
+  </div>
+  <div class="score-cell">
+    <div class="score-n">99<span class="score-th">th</span></div>
+    <p class="score-name">Foresight</p>
+  </div>
+  <div class="score-cell">
+    <div class="score-n muted">90<span class="score-th">th</span></div>
+    <p class="score-name">Analytical Reasoning</p>
+  </div>
+  <div class="score-cell">
+    <div class="score-n">99<span class="score-th">th</span></div>
+    <p class="score-name">Number Facility</p>
+  </div>
+  <div class="score-cell">
+    <div class="score-n muted">95<span class="score-th">th</span></div>
+    <p class="score-name">Graphoria</p>
+  </div>
+</div>
+<p class="score-note">Assessment completed March 26, 2026 · Available upon request</p>
+
+<div class="joc-bar">
+  <p class="joc-text">Scores are expressed as a percentile rank against a large age-matched population. <strong>Performance-based work samples</strong>, not surveys or self-reported preferences.</p>
+</div>
+
+<div class="aptitudes">
+  <p class="section-label">Applied to AI Implementation</p>
+
+  <div class="aptitude">
+    <div class="apt-header">
+      <p class="apt-name">Inductive Reasoning</p>
+      <p class="apt-pct">99th</p>
+    </div>
+    <p class="apt-desc"><strong>Inductive Reasoning</strong> is the ability to identify patterns and form reasonable conclusions. When AI models are drifting away from outputs as conversations and prompts become more complex, I can identify the subtle inconsistencies that lead to errors in production.</p>
+  </div>
+
+  <div class="aptitude">
+    <div class="apt-header">
+      <p class="apt-name">Foresight</p>
+      <p class="apt-pct">99th</p>
+    </div>
+    <p class="apt-desc"><strong>Foresight</strong> is the ability to anticipate downstream consequences before they happen. When I'm designing AI pipelines and automated workflows, I can't just build for what the current challenge calls for; effective tools must account for future edge cases.</p>
+  </div>
+
+  <div class="aptitude">
+    <div class="apt-header">
+      <p class="apt-name">Analytical Reasoning</p>
+      <p class="apt-pct muted">90th</p>
+    </div>
+    <p class="apt-desc"><strong>Analytical Reasoning</strong> is the ability to break complex problems into logical steps. In AI implementation this means understanding not just whether a tool works, but how it fits into a larger workflow, where it will break, and what needs to be true for the output to be useful.</p>
+  </div>
+
+  <div class="aptitude">
+    <div class="apt-header">
+      <p class="apt-name">Number Facility</p>
+      <p class="apt-pct">99th</p>
+    </div>
+    <p class="apt-desc">Numerical processing speed and arithmetic accuracy. Fast, reliable numerical reasoning is foundational to validating model outputs, interpreting statistical results, and catching errors in automated calculations before they propagate.</p>
+  </div>
+
+  <div class="aptitude">
+    <div class="apt-header">
+      <p class="apt-name">Graphoria</p>
+      <p class="apt-pct muted">95th</p>
+    </div>
+    <p class="apt-desc">Data scanning speed and clerical accuracy. The ability to move through large volumes of structured data quickly and catch anomalies is a direct asset in data quality work, QA processes, and reviewing model outputs at scale.</p>
+  </div>
+</div>
+
+<div class="body-section">
+  <p class="body-text">These skills are not available from a college course or an online certification. Even before technology skills, they are the foundation to what makes AI implementation actually stick.</p>
+</div>
+
+<div class="quote-section">
+  <p class="quote-text">"I'd rather have a lot of talent and a little experience than a lot of experience and a little talent."</p>
+  <p class="quote-attr">John Wooden</p>
+</div>
+
+<div class="about-section">
+  <p class="about-label">About This Assessment</p>
+  <p class="about-text">The <strong>Johnson O'Connor Aptitude Test</strong> is one of the longest-running and most cited human aptitude tests in the United States. Tests are <strong>performance-based work samples</strong>, not surveys or self-reported preferences. Aptitudes measured here have been validated across decades of research and are considered <strong>stable traits</strong>, not subject to short-term improvement. Unlike personality or interest inventories, these results reflect demonstrated cognitive ability under timed conditions, making them a <strong>reliable signal</strong> of how a person's mind actually performs.</p>
+</div>
+
+<div class="pdf-bar">
+  <p class="pdf-label">Download the PDF version</p>
+  <a href="https://drive.google.com/uc?export=download&id=1xyuXws9u3oc-PJpEZVxljkZfq-j6ZhwU" class="pdf-link">Download PDF</a>
+</div>
+<footer>
+  <p>© 2026 Antoine Savelli</p>
+  <p>v2.0</p>
+</footer>
+</body>
+</html>
