@@ -43,7 +43,7 @@
     .joc-text strong { color: var(--charcoal); font-weight: 500; }
 
     .aptitudes { padding: 3.5rem 6rem; }
-    .section-label { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--forest); margin-bottom: 2.5rem; }
+    .section-label { font-size: 1rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--forest); margin-bottom: 2.5rem; }
     .aptitude { border-top: 1px solid var(--cream-dark); padding: 2.5rem 0; display: grid; grid-template-columns: 180px 1fr; gap: 3rem; align-items: baseline; }
     .aptitude:last-child { border-bottom: 1px solid var(--cream-dark); }
     .apt-header { }
@@ -52,7 +52,7 @@
     .apt-pct.muted { color: var(--light); }
     .apt-desc { font-size: 1.1rem; font-weight: 300; color: var(--mid); line-height: 1.85; }
 
-    .body-section { padding: 3.5rem 6rem; border-top: 1px solid var(--cream-dark); }
+    .body-section { padding: 3.5rem 6rem; }
     .body-text { font-size: 1.1rem; font-weight: 300; color: var(--mid); line-height: 1.9; max-width: 760px; }
     .body-text strong { color: var(--charcoal); font-weight: 500; }
 
@@ -65,7 +65,7 @@
     .about-text { font-size: 1.05rem; font-weight: 300; color: var(--mid); line-height: 1.85; max-width: 760px; }
     .about-text strong { color: var(--charcoal); font-weight: 500; }
 
-    .pdf-bar { background: var(--charcoal); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; }
+    .pdf-bar { background: var(--charcoal); padding: 2.5rem 6rem; display: flex; align-items: center; justify-content: center; gap: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .pdf-label { font-size: 0.78rem; color: var(--light); }
     .pdf-link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); text-decoration: none; padding: 0.65rem 1.5rem; border: 1px solid rgba(242,242,242,0.3); transition: all 0.2s; }
     .pdf-link:hover { background: var(--forest); border-color: var(--forest); }
@@ -86,7 +86,7 @@
 </head>
 <body>
 <nav>
-  <a class="nav-brand" href="/">Antoine <em>Savelli</em></a>
+  <a class="nav-brand" href="/">Antoine<em>Savelli</em></a>
   <a class="nav-back" href="/">← Portfolio</a>
 </nav>
 
@@ -118,7 +118,7 @@
     <p class="score-name">Graphoria</p>
   </div>
 </div>
-<p class="score-note">Assessment completed March 26, 2026 · Available upon request</p>
+<p class="score-note" style="text-align:left; padding-left:2rem;">Assessment completed March 26, 2026 · <a href="/cognitive-profile.html" style="color:rgba(242,242,242,0.5); text-decoration:underline; transition:color 0.2s;" onmouseover="this.style.color='rgba(242,242,242,0.8)'" onmouseout="this.style.color='rgba(242,242,242,0.5)'">Available upon request</a></p>
 
 <div class="joc-bar">
   <p class="joc-text">Scores are expressed as a percentile rank against a large age-matched population. <strong>Performance-based work samples</strong>, not surveys or self-reported preferences.</p>
@@ -183,7 +183,6 @@
 </div>
 
 <div class="pdf-bar">
-  <p class="pdf-label">Download the PDF version</p>
   <a href="https://drive.google.com/uc?export=download&id=1xyuXws9u3oc-PJpEZVxljkZfq-j6ZhwU" class="pdf-link">Download PDF</a>
 </div>
 <footer>

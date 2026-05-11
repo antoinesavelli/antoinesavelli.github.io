@@ -17,35 +17,34 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Libre Franklin', Arial, sans-serif; background: var(--off-white); color: var(--charcoal); }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(28,28,28,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .nav-brand { font-family: 'Libre Franklin', sans-serif; font-size: 1.25rem; font-weight: 700; color: #fff; text-decoration: none; }
-    .nav-brand em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest-light); font-weight: 400; }
-    .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
-    .nav-back:hover { color: var(--forest-light); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(250,250,248,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(69,107,81,0.12); }
+    .nav-brand { font-family: 'Libre Franklin', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--charcoal); text-decoration: none; }
+    .nav-brand em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--forest); font-weight: 400; }
+    .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--forest); }
 
-    .page-hero { display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px; }
-    .hero-left { background: var(--charcoal); padding: 4rem 4rem 4rem 6rem; display: flex; flex-direction: column; justify-content: center; }
-    .hero-eyebrow { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(106,145,120,0.8); margin-bottom: 1.5rem; }
-    .hero-title { font-size: clamp(4rem, 6vw, 5.5rem); font-weight: 700; color: #fff; letter-spacing: 0.05em; line-height: 1; margin-bottom: 0.5rem; }
-    .hero-tagline { font-size: 1.15rem; font-weight: 300; letter-spacing: 0.05em; color: rgba(255,255,255,0.4); margin-bottom: 2rem; }
-    .hero-intro { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.85; }
-    .hero-right { background: var(--forest); padding: 4rem; display: flex; align-items: center; }
-    .hero-quote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.4rem; color: rgba(242,242,242,0.92); line-height: 1.7; }
-    .hero-quote-attr { font-family: 'Libre Franklin', sans-serif; font-style: normal; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(242,242,242,0.45); margin-top: 1.5rem; display: block; }
+    .page-hero { display: block; padding-top: 72px; }
+    .hero-left { background: var(--off-white); padding: 4rem 6rem; display: flex; flex-direction: column; justify-content: center; }
+    .hero-eyebrow { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--forest-light); margin-bottom: 1.5rem; }
+    .hero-title { font-size: clamp(4rem, 6vw, 5.5rem); font-weight: 700; color: var(--charcoal); letter-spacing: 0.05em; line-height: 1; margin-bottom: 0.5rem; }
+    .hero-tagline { font-size: 1.15rem; font-weight: 300; letter-spacing: 0.05em; color: var(--light); margin-bottom: 2rem; }
+    .hero-intro { font-size: 1.1rem; font-weight: 300; color: var(--mid); line-height: 1.85; }
 
-    .ai-section { background: var(--off-white); padding: 4rem 6rem; border-top: 1px solid var(--cream-dark); border-bottom: 1px solid var(--cream-dark); }
-    .section-label { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--forest); margin-bottom: 1.2rem; }
-    .ai-text { font-size: 1.1rem; font-weight: 300; color: var(--mid); line-height: 1.9; max-width: 760px; }
+    .ai-section { background: var(--forest); padding: 4rem 6rem; border-top: none; border-bottom: none; }
+    .section-label { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(242,242,242,0.9); margin-bottom: 1.2rem; }
+    .ai-section .ai-label { color: rgba(242,242,242,0.55); }
+    .ai-text { font-size: 1.1rem; font-weight: 300; color: rgba(242,242,242,0.8); line-height: 1.9; max-width: 760px; }
+    .ai-text strong { color: var(--cream); font-weight: 500; }
     .ai-text strong { color: var(--charcoal); font-weight: 500; }
 
-    .challenges { padding: 4rem 6rem; }
+    .challenges { padding: 4rem 6rem; border-top: 1px solid var(--cream-dark); }
     .challenges-intro { font-size: 0.95rem; color: var(--light); margin-bottom: 2.5rem; font-style: italic; }
     .challenge { display: grid; grid-template-columns: 210px 1fr; border-top: 1px solid var(--cream-dark); padding: 2.2rem 0; gap: 3rem; align-items: baseline; }
     .challenge:last-child { border-bottom: 1px solid var(--cream-dark); }
     .ch-name { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest); }
     .ch-desc { font-size: 1.1rem; font-weight: 300; color: var(--mid); line-height: 1.85; }
 
-    .pdf-bar { background: var(--charcoal); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; }
+    .pdf-bar { background: var(--charcoal); padding: 2.5rem 6rem; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .pdf-label { font-size: 0.78rem; color: var(--light); }
     .pdf-link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); text-decoration: none; padding: 0.65rem 1.5rem; border: 1px solid rgba(242,242,242,0.3); transition: all 0.2s; }
     .pdf-link:hover { background: var(--forest); border-color: var(--forest); }
@@ -56,7 +55,6 @@
       nav { padding: 1rem 1.5rem; }
       .page-hero { grid-template-columns: 1fr; }
       .hero-left { padding: 5rem 1.5rem 2.5rem; }
-      .hero-right { padding: 2.5rem 1.5rem; }
       .ai-section, .challenges, .pdf-bar, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       .challenge { grid-template-columns: 1fr; gap: 0.5rem; }
       .pdf-bar { flex-direction: column; gap: 1rem; }
@@ -66,7 +64,7 @@
 </head>
 <body>
 <nav>
-  <a class="nav-brand" href="/">Antoine <em>Savelli</em></a>
+  <a class="nav-brand" href="/">Antoine<em>Savelli</em></a>
   <a class="nav-back" href="/">← Portfolio</a>
 </nav>
 
@@ -77,21 +75,15 @@
     <p class="hero-tagline">Self-built Trading Research System</p>
     <p class="hero-intro">Paramo is a Python codebase designed to identify and validate patterns in extreme, news-driven price moves. This document covers the architecture behind it, the technical challenges solved along the way, and the skills required to build it.</p>
   </div>
-  <div class="hero-right">
-    <div>
-      <p class="hero-quote">AI was used as a force multiplier throughout, not as a shortcut. The AI handled code generation, infrastructure scaffolding, and integration problem-solving. The contextual judgement, architecture decisions, research logic, and quality control were mine.</p>
-      <span class="hero-quote-attr">On building with AI</span>
-    </div>
-  </div>
 </div>
 
 <div class="ai-section">
   <p class="section-label">What It Means to Build with AI</p>
-  <p class="ai-text">Paramo did not exist before AI coding tools made it possible for one person to build it. The platform spans data ingestion, storage architecture, bias correction, pattern recognition, and modular infrastructure capable of both live trading and backtesting. Each component would have required a specialist in a traditional development environment. AI was used as a <strong>force multiplier</strong> throughout, not as a shortcut. The AI handled code generation, infrastructure scaffolding, and integration problem-solving. The contextual judgement, architecture decisions, research logic, and quality control were mine. The result is a production-grade research system built solo that demonstrates what a competent AI pilot actually looks like in practice.</p>
+  <p class="ai-text">Paramo did not exist before AI coding tools made it possible for one person to build it. The platform spans data ingestion, storage architecture, bias correction, pattern recognition, and modular infrastructure capable of both live trading and backtesting. Each component would have required a specialist in a traditional development environment. AI was used as a force multiplier throughout, not as a shortcut. The AI handled code generation, infrastructure scaffolding, and integration problem-solving. The contextual judgement, architecture decisions, research logic, and quality control were mine. The result is a production-grade research system built solo that demonstrates what a competent AI pilot actually looks like in practice.</p>
 </div>
 
 <div class="challenges">
-  <p class="section-label">Key Technical Challenges Solved</p>
+  <p class="section-label" style="color:var(--forest);">Key Technical Challenges Solved</p>
 
   <div class="challenge">
     <p class="ch-name">Multi-Source Integration</p>
@@ -112,7 +104,6 @@
 </div>
 
 <div class="pdf-bar">
-  <p class="pdf-label">Download the PDF version</p>
   <a href="https://drive.google.com/uc?export=download&id=1VVJjyaAfFkFP3aEwU5N_zMSpKkuULsmL" class="pdf-link">Download PDF</a>
 </div>
 <footer>

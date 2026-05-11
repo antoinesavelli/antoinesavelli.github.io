@@ -23,16 +23,16 @@
     .nav-back { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     .nav-back:hover { color: var(--forest); }
 
-    .page-hero { padding: 7rem 6rem 0; border-bottom: 3px solid var(--charcoal); background: var(--off-white); }
+    .page-hero { padding: 7rem 6rem 0; background: var(--off-white); }
     .hero-kicker { font-size: 0.88rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.75rem; }
     .hero-title { font-size: clamp(3.5rem, 6vw, 5.5rem); font-weight: 700; color: var(--charcoal); line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 1rem; }
     .hero-deck { font-size: 1.25rem; font-weight: 300; color: var(--mid); line-height: 1.75; max-width: 620px; padding-bottom: 2rem; }
 
-    .cases { background: var(--off-white); }
-    .case { border-bottom: 1px solid var(--cream-dark); padding: 3.5rem 6rem; }
+    .cases { background: var(--off-white); border-top: 3px solid var(--cream-dark); }
+    .case { border-bottom: 3px solid var(--cream-dark); padding: 3.5rem 6rem; }
     .case:last-child { border-bottom: none; }
     .case-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2.5rem; }
-    .case-num { font-size: clamp(4.5rem, 7vw, 6.5rem); font-weight: 700; color: var(--cream-dark); line-height: 1; letter-spacing: -0.04em; flex-shrink: 0; }
+    .case-num { font-size: clamp(4.5rem, 7vw, 6.5rem); font-weight: 700; color: var(--forest-light); line-height: 1; letter-spacing: -0.04em; flex-shrink: 0; }
     .case-title { font-size: 1.8rem; font-weight: 700; color: var(--charcoal); line-height: 1.15; }
 
     .iar { display: grid; grid-template-columns: auto 1fr; }
@@ -54,7 +54,7 @@
       border-top: 1px solid var(--cream-dark);
     }
 
-    .pdf-bar { background: var(--charcoal); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; }
+    .pdf-bar { background: var(--charcoal); padding: 2.5rem 6rem; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .pdf-label { font-size: 0.78rem; color: var(--light); }
     .pdf-link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); text-decoration: none; padding: 0.65rem 1.5rem; border: 1px solid rgba(242,242,242,0.3); transition: all 0.2s; }
     .pdf-link:hover { background: var(--forest); border-color: var(--forest); }
@@ -74,7 +74,7 @@
 </head>
 <body>
 <nav>
-  <a class="nav-brand" href="/">Antoine <em>Savelli</em></a>
+  <a class="nav-brand" href="/">Antoine<em>Savelli</em></a>
   <a class="nav-back" href="/">← Portfolio</a>
 </nav>
 
@@ -132,7 +132,6 @@
 </div>
 
 <div class="pdf-bar">
-  <p class="pdf-label">Download the PDF version</p>
   <a href="https://drive.google.com/uc?export=download&id=14Y0NcO2cwdZTpFHjoWy9LrlVRw6LHmay" class="pdf-link">Download PDF</a>
 </div>
 <footer>
