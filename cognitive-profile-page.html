@@ -75,13 +75,29 @@
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .page-hero, .joc-bar, .aptitudes, .body-section, .quote-section, .about-section, .pdf-bar, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .page-hero { padding-top: 5.5rem; }
+      .page-hero { padding-top: 5.5rem; padding-bottom: 2rem; }
+      .hero-title { font-size: clamp(1.8rem, 7vw, 3rem); }
+      .hero-intro { font-size: 1rem; }
       .score-strip { grid-template-columns: repeat(3, 1fr); }
-      .aptitude { grid-template-columns: 1fr; gap: 0.5rem; }
-      .pdf-bar { flex-direction: column; gap: 1rem; }
+      .score-n { font-size: 3rem; }
+      .score-name { font-size: 0.65rem; }
+      .joc-bar { padding: 1.2rem 1.5rem; }
+      .aptitudes { padding: 2.5rem 1.5rem; }
+      .aptitude { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.8rem 0; }
+      .apt-name { font-size: 0.82rem; }
+      .apt-pct { font-size: 1.3rem; }
+      .apt-desc { font-size: 0.95rem; }
+      .body-section { padding: 2rem 1.5rem; }
+      .quote-section { padding: 3rem 1.5rem; }
+      .quote-text { font-size: 1.6rem; }
+      .about-section { padding: 2.5rem 1.5rem; }
+      .pdf-bar { flex-direction: column; gap: 1rem; align-items: center; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
-    @media (max-width: 600px) { .score-strip { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) {
+      .score-strip { grid-template-columns: repeat(2, 1fr); }
+      .score-n { font-size: 2.5rem; }
+    }
   </style>
 </head>
 <body>
