@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PARAMO -- Self-Built Trading System -- Antoine Savelli</title>
+  <title>PARAMO -- Paper-Stage Trading Research System -- Antoine Savelli</title>
   <style>
     @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
     @font-face { font-family: 'Libre Franklin'; src: url('/fonts/LibreFranklin-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
@@ -72,41 +72,45 @@
 
 <div class="page-hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Independent Project · Python · 2025–Present</p>
+    <p class="hero-eyebrow">Founder and Engineer · 2025–Present</p>
     <h1 class="hero-title">PARAMO</h1>
-    <p class="hero-tagline">Self-built Trading Research System</p>
-    <p class="hero-intro">Paramo is a Python codebase designed to identify and validate patterns in extreme, news-driven price moves. This document covers the architecture behind it, the technical challenges solved along the way, and the skills required to build it.</p>
+    <p class="hero-tagline">A paper-stage system with live-grade architecture</p>
+    <p class="hero-intro">Paramo is a systematic trading research system that I design and direct, built with AI coding agents. This page covers the controls that keep its results honest, the technical problems solved along the way, and how it is built. It has not traded real capital and makes no performance claims.</p>
   </div>
 </div>
 
 <div class="ai-section">
-  <p class="section-label">What It Means to Build with AI</p>
-  <p class="ai-text">Paramo did not exist before AI coding tools made it possible for one person to build it. The platform spans data ingestion, storage architecture, bias correction, pattern recognition, and modular infrastructure capable of both live trading and backtesting. Each component would have required a specialist in a traditional development environment. AI was used as a force multiplier throughout, not as a shortcut. The AI handled code generation, infrastructure scaffolding, and integration problem-solving. The contextual judgement, architecture decisions, research logic, and quality control were mine. The result is a production-grade research system built solo that demonstrates what a competent AI pilot actually looks like in practice.</p>
+  <p class="section-label">How It Is Built</p>
+  <p class="ai-text">Paramo did not exist before AI coding tools made it possible for one person to build it. The platform spans data ingestion, storage architecture, bias correction, pattern recognition, and a shared core for backtesting and paper trading. I architect the system and direct AI coding agents to write the code, and their output is verified by tests and CI before it counts. The architecture decisions, research logic, contextual judgement and quality control are mine. AI is a force multiplier here, not a shortcut, and the guardrails below exist because agent-written code needs them.</p>
 </div>
 
 <div class="challenges">
-  <p class="section-label" style="color:var(--forest);">Key Technical Challenges Solved</p>
+  <p class="section-label" style="color:var(--forest);">Controls and Key Technical Challenges</p>
 
   <div class="challenge">
-    <p class="ch-name">Multi-Source Integration</p>
-    <p class="ch-desc">Four financial data APIs with different schemas, coverage gaps, and undocumented inconsistencies. Built every ingestion pipeline independently and cross-validated data across sources before any analysis ran.</p>
+    <p class="ch-name">Controls Enforced in CI</p>
+    <p class="ch-desc">Look-ahead scanning, a sizing-order check and a golden-regression baseline are enforced in CI, so the guardrails do not depend on anyone remembering to run them. The AI coding agents work behind ask-first gates and a pre-push audit hook.</p>
   </div>
   <div class="challenge">
-    <p class="ch-name">Dual-Mode Architecture</p>
-    <p class="ch-desc">A backtest engine and live trading system share the same core logic but have fundamentally different runtime requirements. Designed a modular shared core where all strategy logic, pattern scoring, and exit management runs identically in both modes, with thin mode-specific adapters handling only the data layer.</p>
+    <p class="ch-name">Lookahead Bias</p>
+    <p class="ch-desc">Backtest results were implausibly strong. Diagnosed forward-looking price information leaking into entry logic, enforced strict temporal data boundaries, and re-ran the full backtest suite so results reflect only information available at entry time.</p>
+  </div>
+  <div class="challenge">
+    <p class="ch-name">Multi-Source Integration</p>
+    <p class="ch-desc">Four financial data APIs with different schemas, coverage gaps, and undocumented inconsistencies. Directed the build of each ingestion pipeline and cross-checked data across sources before any analysis ran.</p>
+  </div>
+  <div class="challenge">
+    <p class="ch-name">Shared-Core Architecture</p>
+    <p class="ch-desc">The backtest engine and the paper-trading engine share the same core logic but have different runtime requirements. Designed a modular shared core where all strategy logic, pattern scoring, and exit management runs identically in both modes, with thin mode-specific adapters handling only the data layer.</p>
   </div>
   <div class="challenge">
     <p class="ch-name">Computational Scalability</p>
     <p class="ch-desc">Running full pattern analysis across 5,000 symbols with a 30-month lookback was projected to exceed 30 hours of runtime. Resolved by redesigning the screening pipeline to apply hard gap and price filters, dramatically reducing the symbol pool by 90% before hitting the expensive computation layer.</p>
   </div>
-  <div class="challenge">
-    <p class="ch-name">Lookahead Bias</p>
-    <p class="ch-desc">Backtest results were implausibly strong. Diagnosed forward-looking price information leaking into entry logic, enforced strict temporal data boundaries, and revalidated the full backtest suite to confirm results reflected only information available at entry time.</p>
-  </div>
 </div>
 
 <div class="pdf-bar">
-  <a href="https://drive.google.com/uc?export=download&id=1VVJjyaAfFkFP3aEwU5N_zMSpKkuULsmL" class="pdf-link">Download PDF</a>
+  <a href="https://paramotrading.com" target="_blank" rel="noopener" class="pdf-link">Visit paramotrading.com</a>
 </div>
 <footer>
   <p>© 2026 Antoine Savelli</p>
