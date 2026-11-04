@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approach · Antoine Savelli</title>
+  <meta name="description" content="I build with AI agents at full speed because nothing they produce is trusted until an independent check passes it." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <link rel="canonical" href="https://antoine-savelli.com/approach" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjRjJGMkYyIi8+CiAgPHRleHQgeD0iMyIgeT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxYzFjMWMiPkE8L3RleHQ+CiAgPHRleHQgeD0iMTYiIHk9IjI0IiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iIzQ1NkI1MSI+UzwvdGV4dD4KPC9zdmc+" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="nav-brand" href="/"><span class="nav-name">Antoine</span><em class="nav-last"> Savelli</em></a>
+    <ul class="nav-links">
+      <li><a href="/work">Work</a></li>
+      <li><a href="/approach" aria-current="page">Approach</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#connect">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Approach</h1>
+    <h2 id="build">How I build</h2>
+    <p>I build with AI agents at full speed because nothing they produce is trusted until an independent check passes it. Independent here means a separate AI session that did not build the work and has no stake in it. The defects it finds go back to the builder.</p>
+    <p>Each repository holds the agents' rules as files. One model, Opus, plans the work and splits it into small pieces. A cheaper one, Sonnet, builds each piece. A separate AI session then checks each piece against what was asked for and what changed, and is never given the builder's report. An agent's report is a claim until someone checks it against the code.</p>
+    <p>Every local model's job records the evidence behind it, and the untested ones say so. The git helper, which saves code changes to the project history, was chosen on a test in <a href="https://github.com/antoinesavelli/pruvera">pruvera</a>, which tests coding agents on planted defects in a copy of Paramo. The research job is marked as not yet benchmarked.</p>
+    <p>After a configuration file was deleted by an unidentified process, a rule was added that the files a repository lists as kept are not deleted or overwritten without asking. In my site's repository, a script runs the machine-checkable rules before each change is saved to the project history, and the caps on machine-sounding phrasing in my site's text are only ever lowered.</p>
+    <p>In Paramo, a code change is not done until the agent runs the defensive-coding scorecard and no dimension has dropped a band.</p>
+    <p><a href="https://github.com/antoinesavelli/pastore">pastore</a> runs AI-model jobs on local graphics processors. An agent wrote the scheduler's loop with no safety net for errors on each pass, so one unexpected error would have stopped the scheduler. The checking session, forbidden to edit anything, found it. The fix records the error and keeps the scheduler running, and an automated test keeps it fixed.</p>
+    <p>I design the work, direct the agents and decide what ships. I did not write the code by hand.</p>
+    <h2 id="challenge">How it is challenged</h2>
+    <p>SR 11-7 was superseded by SR 26-2 on 17 April 2026. SR 26-2 does not cover AI agents. Footnote 3 of the guidance puts generative and agentic AI models outside its scope and leaves their controls to each bank's own risk management. Paramo fits the guidance's definition of a model. The agents that build it fall under footnote 3. What follows is one working set of controls for that gap. It applies the guidance's principles to the agents by analogy and uses the SR 11-7 element names a validator still uses.</p>
+    <p>When the planning model described above splits agent work into pieces, a separate AI session that did not build the work and has no stake in it checks each piece against what was asked for and what changed, and never reads the builder's report. A defect goes back to the builder and the piece is checked again. A failing guard may not be weakened to pass. Changes on the ask-first list wait for my approval.</p>
+    <p>The weakest rows are effective challenge, ongoing monitoring, outcomes analysis and internal audit. A one-person shop has no outside challenger or auditor, and with Paramo's trading services stopped and no order ever filled, no model performance is monitored or compared with a market outcome.</p>
+    <div class="table-wrap">
+      <table id="crosswalk" aria-describedby="crosswalk-note">
+        <thead>
+          <tr>
+            <th scope="col">SR 11-7 element</th>
+            <th scope="col">What it expects</th>
+            <th scope="col">Control</th>
+            <th scope="col">Evidence</th>
+            <th scope="col">Gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Vendor and third-party models</th>
+            <td>Understand a vendor model's design, data and performance, then monitor it</td>
+            <td>pruvera scores local models on planted defects, edits to protected files and planted instructions, and records a study's plan in a tamper-evident log before its first trial. pastore runs a task and model pair only after I list it with an evidence file and it passes a test against a simulated model server that returns errors, refuses connections and hangs. torra never gives the local model direct command-line access.</td>
+            <td>pruvera <a href="https://github.com/antoinesavelli/pruvera/blob/main/EVAL_CARD.md">EVAL_CARD.md</a>, <a href="https://github.com/antoinesavelli/pruvera/blob/main/bench/registry.py">bench/registry.py</a>, <a href="https://github.com/antoinesavelli/pruvera/blob/main/results/public/SUMMARY.md">results/public/SUMMARY.md</a>; <a href="https://github.com/antoinesavelli/pastore">pastore</a>; <a href="https://github.com/antoinesavelli/torra">torra</a></td>
+            <td>pruvera tests only local models, which leaves out the Anthropic models that do most of the building. Its test set is private, so no outsider can rerun a number. A grader audit cleared one grader, found false passes in another, and had too few cases to judge the rest. pastore's listed pairs carry stand-in evidence until pruvera records a pass.</td>
+          </tr>
+          <tr>
+            <th scope="row">Development, implementation and use</th>
+            <td>Clear purpose, sound data and methods, testing scaled to materiality</td>
+            <td>Paramo's research rules require look-ahead and cost checks, a deflated Sharpe ratio gate, and purged cross-validation for ML probes. Data from 2025 and 2026 is held out until final verification. A regression test compares a backtest with expected output that I approved.</td>
+            <td>probe/AGENTS.md, AGENTS.md (holdout section) and tests/golden/README.md in Paramo (private)</td>
+            <td>The live order path has never run end to end against a broker, and no order has filled. Some of the later data was read before the hold-out rule, and the spend ledger cannot show how often.</td>
+          </tr>
+          <tr>
+            <th scope="row">Use restrictions and limitations</th>
+            <td>Know a model's limits and restrict use beyond its purpose</td>
+            <td>Live capital needs a deflated Sharpe ratio of at least 0.95 and my approval each time. torra holds every step it rates dangerous or critical, and any program it does not recognise, for my approval.</td>
+            <td>docs/STRATEGY_LIFECYCLE.md (the live-capital stage) in Paramo (private); torra <a href="https://github.com/antoinesavelli/torra/blob/main/torra/gates/README.md">gates README</a>, <a href="https://github.com/antoinesavelli/torra/blob/main/docs/STATUS.md">docs/STATUS.md</a></td>
+            <td>torra's command classifier is unfinished, and its blind red-team has not run.</td>
+          </tr>
+          <tr>
+            <th scope="row">Policies, procedures and roles</th>
+            <td>Written policy, clear accountability, managed conflict between development and validation</td>
+            <td>Each repo's AGENTS.md holds an ask-first list. In Paramo, a pre-push hook stops a push that touches risk caps, the live execution path or the database schema unless each commit has a recorded confirmation.</td>
+            <td>AGENTS.md ("When to Ask vs. Act"), scripts/dev/check_harness_approval.py and .githooks/pre-push in Paramo (private)</td>
+            <td>Development and validation both report to me, so the conflict of interest SR 26-2 asks banks to manage is not managed. I give the confirmation the hook checks, and a push can skip the hook. pruvera's table of which changes need which evidence awaits my approval.</td>
+          </tr>
+          <tr>
+            <th scope="row">Documentation</th>
+            <td>Enough for continuity and for tracking findings, responses and exceptions</td>
+            <td>Decision logs, status pages with a separate history file, and an eval card that states its limits.</td>
+            <td>docs/DECISIONS.md and docs/STATUS_HISTORY.md in Paramo (private); pruvera <a href="https://github.com/antoinesavelli/pruvera/blob/main/EVAL_CARD.md">EVAL_CARD.md</a></td>
+            <td>An AI agent wrote the eval card, and it says my review of its text is not recorded.</td>
+          </tr>
+          <tr>
+            <th scope="row">Conceptual soundness</th>
+            <td>Critical review of design, assumptions and developmental evidence</td>
+            <td>Before the holdout is spent, an adversarial pass tries to kill the result. A placebo timing test is recommended in that pass.</td>
+            <td>probe/AGENTS.md (adversarial kill-pass section) and probe/placebo_controls.py in Paramo (private)</td>
+            <td>Strategies reached the engine without passing the validation gate, before the rule that requires a written waiver reason. The placebo test is optional. No outside quant has reviewed the method.</td>
+          </tr>
+          <tr>
+            <th scope="row">Model inventory</th>
+            <td>Enough information on each model to see risk singly and in aggregate</td>
+            <td>model-routing.yaml names the local model for each job. Every local model's job records the evidence behind it, and the untested ones say so. pastore's policy.yaml lists approved pairs. Paramo's status page records which strategy is operative.</td>
+            <td>machines/workstation/model-routing.yaml in system-library (private); <a href="https://github.com/antoinesavelli/pastore">pastore</a> (policy.yaml); docs/STATUS.md in Paramo (private)</td>
+            <td>No single inventory, no materiality tier per entry and no aggregate view. The Anthropic models are not listed.</td>
+          </tr>
+          <tr>
+            <th scope="row">Effective challenge</th>
+            <td>Critical analysis by qualified people separate enough to stay objective, with the standing to force change</td>
+            <td>Agent work split into pieces is checked by a separate AI session that did not build the work and has no stake in it, given what was asked for and what changed instead of the builder's report. A failing guard may not be weakened to pass.</td>
+            <td>machines/workstation/agents/CLAUDE_USER.md and AGENT_DOCTRINE.md (fix-the-cause section) in system-library (private)</td>
+            <td>No human challenger besides the owner. Reviewer models can come from the builder's vendor. A one-person shop has no organizational independence or standing, and SR 26-2 asks for both. Only work the planning model splits into pieces gets this check. Small tasks, design, debugging and reviews it does without a split, and sessions on other models, get none.</td>
+          </tr>
+          <tr>
+            <th scope="row">Ongoing monitoring</th>
+            <td>Check the model still performs as conditions change</td>
+            <td>Automated health checks on Paramo, known-answer tests for its audit routines, a drift check on model configs, and pruvera comparisons of agents on identical issues.</td>
+            <td>docs/audit/HEALTH_LOG.md and docs/audit/routine_canaries.yaml in Paramo (private); scripts/check_model_config_sync.py in system-library (private); pruvera <a href="https://github.com/antoinesavelli/pruvera/blob/main/results/public/SUMMARY.md">results/public/SUMMARY.md</a></td>
+            <td>These watch code and pipelines. Paramo's trading services have been stopped since 8 October 2026, so no model performance is monitored. Alerting when a Paramo service fails is untested.</td>
+          </tr>
+          <tr>
+            <th scope="row">Outcomes analysis</th>
+            <td>Compare outputs with market outcomes against set thresholds</td>
+            <td>Backtests with a held-out period. Written kill criteria for each strategy that was a candidate for live capital.</td>
+            <td>docs/PROMOTION_KILL_CRITERIA.md and the forward-test pre-registration draft in docs/research/decision-records, both in Paramo (private)</td>
+            <td>No live or paper order has ever filled, so no output has been compared with a market outcome. A forward-test pre-registration was drafted, and its first precondition failed on 24 October 2026, so it was never frozen.</td>
+          </tr>
+          <tr>
+            <th scope="row">Internal audit</th>
+            <td>A check from outside the model's owners that the framework is followed and works</td>
+            <td>Not covered</td>
+            <td>None</td>
+            <td>Not covered</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p id="crosswalk-note">My own mapping of my controls to SR 11-7 (now SR 26-2). It is not a validation opinion, and no independent party has reviewed it.</p>
+  </main>
+  <footer class="site-footer">
+    <p>Antoine Savelli</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work · Antoine Savelli</title>
+  <meta name="description" content="Paramo is the model under governance, a solo-built financial research instrument." />
+  <link rel="canonical" href="https://antoine-savelli.com/work" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjRjJGMkYyIi8+CiAgPHRleHQgeD0iMyIgeT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxYzFjMWMiPkE8L3RleHQ+CiAgPHRleHQgeD0iMTYiIHk9IjI0IiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iIzQ1NkI1MSI+UzwvdGV4dD4KPC9zdmc+" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="nav-brand" href="/"><span class="nav-name">Antoine</span><em class="nav-last"> Savelli</em></a>
+    <ul class="nav-links">
+      <li><a href="/work" aria-current="page">Work</a></li>
+      <li><a href="/approach">Approach</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#connect">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Work</h1>
+    <p>Paramo is the model under governance, a solo-built financial research instrument. pruvera, torra and pastore are the controls on the AI agents and local models I build with. <a href="/approach">How the work is built and challenged</a> is on the approach page.</p>
+
+    <h2>Paramo, the model</h2>
+    <p>Paramo is a research and backtesting system with a built execution path to a broker. No live or paper order has filled, and its trading services have been stopped since 8 October 2026.</p>
+    <p><strong>Finding (outcomes analysis).</strong> A tick-level audit of a strategy that had passed its statistical tests showed the backtest understated losses. Its deflated Sharpe ratio fell below the 0.95 pass bar, and the strategy was retired without a trade.</p>
+    <p><strong>Limitation.</strong> The repository is private, so it has no link and nobody outside can rerun the audit.</p>
+
+    <h2>pruvera, evidence about which model to trust</h2>
+    <p>pruvera runs local AI coding agents on a sandboxed copy of Paramo, with defects planted whose correct answer is known, and scores each change by tests. It has passed no model and grants nothing.</p>
+    <p><strong>Finding (third-party model testing).</strong> In one planted case, none of 14 local models asked before editing a file the rules say to ask about first (0 of 14). Three tried to edit it, and the permission layer refused them.</p>
+    <p><strong>Limitation.</strong> The copy of Paramo it ran on is private, so outsiders can read the method and the harness but cannot rerun the numbers.</p>
+    <p><a href="https://github.com/antoinesavelli/pruvera">pruvera on GitHub</a></p>
+
+    <h2>torra, which command runs</h2>
+    <p>torra is a terminal agent for Linux system work. A local model proposes a plan and never gets a shell. torra decides which proposed command runs and which waits for my approval.</p>
+    <p><strong>Finding (approval gates).</strong> The first graded review of torra found that its classifier rated commands such as <code>dd if=/dev/zero of=/etc/passwd</code> and <code>kill -9 -1</code> safe, so they would have run with no approval. On 4 October 2026 the rule changed so that a program torra does not recognise, or a known one writing to a system path, waits for my approval.</p>
+    <p><strong>Limitation.</strong> The review was my own, run by an AI agent session with a grading rubric, and torra did not catch the fault. Later reviews found more commands that slipped past the new rule, and the blind red-team run has not happened.</p>
+    <p><a href="https://github.com/antoinesavelli/torra">torra on GitHub</a></p>
+
+    <h2>pastore, which background job runs</h2>
+    <p>pastore schedules the model-heavy background jobs on my GPU machines. A job runs only as a task and model pair that I have listed with evidence, and only after it passes a contract test against a simulated model server that returns errors, refuses connections and hangs.</p>
+    <p><strong>Finding (implementation testing).</strong> Neither of the first two jobs pastore was built to run met that contract. One recorded each model-server error as a failed result and still exited as a success, and the other retried every HTTP error. Both were fixed and passed the contract before pastore listed them.</p>
+    <p><strong>Limitation.</strong> The faults were found by reading both jobs while pastore was being designed, and they are why every job must pass the contract test. Both jobs were mine. The model and job pairs pastore runs carry stand-in evidence, because pruvera has not yet passed any model.</p>
+    <p><a href="https://github.com/antoinesavelli/pastore">pastore on GitHub</a></p>
+  </main>
+  <footer class="site-footer">
+    <p>Antoine Savelli</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+/* Shared stylesheet for the newer pages. Plain reading: no hidden-until-scroll
+   content, no hover-only content, no dropdowns, tabs or expanding panels. */
+
+/* FONTS: Latin subsets, weights 400 and 600 only (see assets/fonts/NOTICE.txt) */
+@font-face { font-family: 'Libre Franklin'; src: url('/assets/fonts/LibreFranklin-Regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Libre Franklin'; src: url('/assets/fonts/LibreFranklin-SemiBold.woff') format('woff'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DM Serif Display'; src: url('/assets/fonts/DMSerifDisplay-Regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DM Serif Display'; src: url('/assets/fonts/DMSerifDisplay-Italic.woff') format('woff'); font-weight: 400; font-style: italic; font-display: swap; }
+
+/* TOKENS (same names and values as index.html) */
+:root {
+  --forest: #456B51;
+  --forest-mid: #4a6b59;
+  --forest-light: #6a9178;
+  --cream: #F2F2F2;
+  --cream-dark: #e6e6e1;
+  --off-white: #fafaf8;
+  --charcoal: #1c1c1c;
+  --mid: #5a5a5a;
+  --light: #9a9a9a;
+  --accent: #c8a96e;
+}
+
+/* BASE */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Libre Franklin', 'Franklin Gothic Book', Arial, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.7;
+  background: var(--off-white);
+  color: var(--charcoal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; width: 100%; max-width: 46rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; overflow-wrap: break-word; }
+main > * + * { margin-top: 1.1rem; }
+p, ul, ol, dl, blockquote, figure { max-width: 68ch; }
+ul, ol { padding-left: 1.4rem; }
+li + li { margin-top: 0.35rem; }
+img { max-width: 100%; height: auto; }
+
+/* HEADINGS (section titles on index.html are Libre Franklin, so these are too) */
+h1, h2, h3 { font-weight: 600; line-height: 1.25; color: var(--charcoal); }
+h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+h2 { font-size: clamp(1.4rem, 3.5vw, 1.8rem); margin-top: 2.5rem; }
+h3 { font-size: 1.15rem; margin-top: 1.75rem; }
+h1 em, h2 em { font-family: 'DM Serif Display', Georgia, serif; font-style: italic; font-weight: 400; color: var(--forest); }
+
+/* LINKS */
+a { color: var(--forest); text-decoration: underline; text-underline-offset: 0.15em; }
+a:hover { color: var(--forest-mid); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+/* CODE: inline commit hashes and file names */
+code {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
+  overflow-wrap: anywhere;
+}
+
+pre {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  max-width: 100%;
+}
+pre code { background: none; border: 0; padding: 0; font-size: inherit; overflow-wrap: normal; }
+strong, b { font-weight: 600; }
+
+/* TABLES: wrap in <div class="table-wrap"> so a wide table scrolls inside its box */
+.table-wrap { overflow-x: auto; max-width: 100%; margin-top: 1.1rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; line-height: 1.5; }
+th, td { border: 1px solid var(--cream-dark); padding: 0.55rem 0.75rem; text-align: left; vertical-align: top; overflow-wrap: anywhere; } /* long paths wrap instead of widening a column */
+.table-wrap table { min-width: 40rem; } /* narrower than this, the table scrolls inside its wrapper instead of squeezing columns */
+.table-wrap th, .table-wrap td { min-width: 8rem; } /* floor per column (5 x 8rem = 40rem), so wrapping never crushes one to a sliver */
+th { background: var(--cream); font-weight: 600; }
+
+/* FIGURE AND QUOTE */
+figure { margin-top: 1.5rem; }
+figcaption { font-size: 0.9rem; color: var(--mid); margin-top: 0.4rem; }
+blockquote { border-left: 3px solid var(--forest-light); padding-left: 1rem; color: var(--mid); }
+
+/* NAV: brand left, plain text links right, in normal flow (not fixed) */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 2rem;
+  padding: 1.2rem 4rem;
+  border-bottom: 1px solid rgba(52, 74, 61, 0.12);
+  background: var(--off-white);
+}
+.nav-brand { text-decoration: none; display: inline-flex; align-items: baseline; }
+.nav-name { font-size: 1.25rem; font-weight: 600; color: var(--charcoal); letter-spacing: 0.01em; line-height: 1; }
+.nav-last { font-family: 'DM Serif Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.25rem; color: var(--forest); letter-spacing: 0.01em; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; list-style: none; padding: 0; }
+.nav-links li + li { margin-top: 0; }
+.nav-links a { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; }
+.nav-links a:hover { color: var(--forest); text-decoration: underline; }
+/* current page: forest colour plus a thick underline, so it is not marked by colour alone */
+.nav-links a[aria-current="page"] { color: var(--forest); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.4em; }
+
+/* FOOTER */
+.site-footer { background: var(--charcoal); padding: 2rem 4rem; }
+.site-footer p { font-size: 0.8rem; color: var(--light); letter-spacing: 0.06em; max-width: none; }
+.site-footer a { color: var(--forest-light); }
+.site-footer a:hover { color: var(--cream); }
+
+/* SMALL SCREENS */
+@media (max-width: 640px) {
+  body { font-size: 1rem; }
+  main { padding: 2rem 16px 3rem; }
+  .site-nav { padding: 1rem 16px; }
+  .nav-links { gap: 0.4rem 1.25rem; }
+  .site-footer { padding: 1.5rem 16px; }
+  th, td { padding: 0.45rem 0.55rem; }
+}
