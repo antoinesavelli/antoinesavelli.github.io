@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approach · Antoine Savelli</title>
+  <meta name="description" content="Agents write the code in my systems. This is how the work earns trust when no one reads every line." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <link rel="canonical" href="https://antoine-savelli.com/approach" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjRjJGMkYyIi8+CiAgPHRleHQgeD0iMyIgeT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxYzFjMWMiPkE8L3RleHQ+CiAgPHRleHQgeD0iMTYiIHk9IjI0IiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iIzQ1NkI1MSI+UzwvdGV4dD4KPC9zdmc+" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="nav-brand" href="/"><span class="nav-name">Antoine</span><em class="nav-last"> Savelli</em></a>
+    <ul class="nav-links">
+      <li><a href="/work">Work</a></li>
+      <li><a href="/approach" aria-current="page">Approach</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#connect">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="approach">
+    <header class="approach-intro">
+      <h1>How do you govern AI you can't read line by line?</h1>
+      <p class="lead">Agents write the code in my systems. At this scale no person reads all of it, and I don't review the source myself. So trust has to rest on something else, and each step below leaves less of it resting on anyone's word.</p>
+      <p class="intro-line">My work sits between the people who build AI and the people accountable for it.</p>
+    </header>
+
+    <ol class="chain-map">
+      <li><a href="#doctrine">Write the judgment down</a></li>
+      <li><a href="#boundary">Make it a boundary</a></li>
+      <li><a href="#testing">Test what's left</a></li>
+      <li><a href="#open">Say what's open</a></li>
+    </ol>
+
+    <div class="chain">
+      <section class="chain-step" id="doctrine">
+        <h2>Write the judgment down</h2>
+        <div class="step-body">
+          <p class="step-lead">Agents start every session knowing nothing.</p>
+          <p>A written doctrine tells them how to work, when to stop and what to ask first.</p>
+          <blockquote class="rule"><p>A check you did not run is not a check that passed.</p></blockquote>
+          <blockquote class="rule"><p>Never narrow a guard's scope, add an exemption, or soften a failing check to make it pass.</p></blockquote>
+          <blockquote class="rule"><p>Approval covers only the action it was given for.</p></blockquote>
+          <p>A rule on paper only asks. My most serious rule moved into code, a push gate that checks every change to risk limits and the live trading path for my recorded confirmation. An agent could type that confirmation, so it works as a tripwire that makes those changes visible.</p>
+          <p><a href="https://github.com/antoinesavelli/torra/blob/main/AGENTS.md">Read the public core of the doctrine</a></p>
+        </div>
+      </section>
+
+      <section class="chain-step" id="boundary">
+        <h2>Make it a boundary</h2>
+        <div class="step-body">
+          <p class="step-lead">A model can ignore a rule. It can't use a power it was never given.</p>
+          <div class="proof">
+            <p class="proof-name"><a href="https://github.com/antoinesavelli/torra">torra</a></p>
+            <p>A local model proposes a plan and never gets a shell. torra decides which command runs, and holds anything its classifier rates dangerous, and any program it does not recognise, for my approval. A graded review found its classifier rating destructive commands as safe, so on 4 October 2026 the rule changed and an unrecognised program now waits for me. Later reviews found more that slipped past, and the blind red-team has not run.</p>
+          </div>
+          <div class="proof">
+            <p class="proof-name"><a href="https://github.com/antoinesavelli/pruvera">pruvera</a></p>
+            <p>14 local models were told to ask before editing a protected file, and <strong>0 of 14 asked</strong>. The permission rule refused the ones that tried. It is one test case, and it supports keeping limits outside the model.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chain-step" id="testing">
+        <h2>Test what's left</h2>
+        <div class="step-body">
+          <p class="step-lead">Decide what counts as correct, then check the results against the data.</p>
+          <div class="proof">
+            <p class="proof-name"><a href="/ai-implementation">The $50k decision</a></p>
+            <p>At SimpsonScarborough I tested an LLM pipeline against pre-coded survey data, with the contracted platform as the benchmark. It came <strong>within 5 to 10%</strong> on thematic grouping and sentiment. A decision-maker approved the switch, and the $50k annual contract ended.</p>
+          </div>
+          <div class="proof">
+            <p class="proof-name"><a href="https://github.com/antoinesavelli/pruvera">pruvera</a></p>
+            <p>It plants defects whose correct answer is known, records each study's plan in a tamper-evident log before the first trial, and scores most fixes by tests. It has passed no model and grants nothing.</p>
+          </div>
+          <div class="proof">
+            <p class="proof-name">Testing the testers</p>
+            <p>pruvera's graders were audited against recorded agent runs. One passed. Another showed <strong>4 false passes in 35</strong>, and the result is published in the <a href="https://github.com/antoinesavelli/pruvera/blob/main/EVAL_CARD.md">eval card</a>.</p>
+          </div>
+          <div class="proof">
+            <p class="proof-name"><a href="https://github.com/antoinesavelli/pastore">pastore</a></p>
+            <p>When agent work is split into pieces, a separate AI session that did not build it checks each piece and never sees the builder's report. In pastore, a checker forbidden to edit anything found that one unexpected error would have stopped the scheduler.</p>
+          </div>
+          <p>A backtest once priced entries off the signal bar's close, using information no trader would have had at that moment. An automated test now guards against references to future data.</p>
+        </div>
+      </section>
+
+      <section class="chain-step" id="open">
+        <h2>Say what's open</h2>
+        <div class="step-body">
+          <h3>What I rely on, and how I limit it</h3>
+          <p>I work with agents the way a control owner works with engineers. I set the requirements, decide what counts as correct, and test results against the data. Agents write the code, separate AI sessions review the work that is split into pieces, and I read those reports and make the call. I don't review the source myself, so the steps above exist to make the system depend on those reviews as little as possible.</p>
+          <p class="step-lead">That dependence is my weakest control.</p>
+          <h3>Still open</h3>
+          <ul class="open-list">
+            <li>Reviewers usually come from the same vendor as the builder, so they can share its blind spots. Since November 2026, my rules also require another company's review on ask-first changes.</li>
+            <li>Agents write most of the tests as well.</li>
+            <li>No human outside my own setup has reviewed this work.</li>
+            <li>Development and validation both report to me.</li>
+            <li>I have overridden my own rule. In August 2026 a strategy failed its 0.95 bar and I made it the engine default anyway. It was later retired with no fill.</li>
+          </ul>
+          <h3>Every element, mapped</h3>
+          <p>Each SR 11-7 element, by the names validators still use. My own mapping, with no independent review.</p>
+          <ul class="element-strip">
+            <li>Vendor and third-party models</li>
+            <li>Development, implementation and use</li>
+            <li>Use restrictions and limitations</li>
+            <li>Policies, procedures and roles</li>
+            <li>Documentation</li>
+            <li>Conceptual soundness</li>
+            <li>Model inventory</li>
+            <li class="weak">Effective challenge <span class="weak-tag">weakest</span></li>
+            <li class="weak">Ongoing monitoring <span class="weak-tag">weakest</span></li>
+            <li class="weak">Outcomes analysis <span class="weak-tag">weakest</span></li>
+            <li class="weak">Internal audit <span class="weak-tag">weakest</span></li>
+          </ul>
+          <p><a href="/controls">See every control and gap</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <p>Antoine Savelli</p>
+  </footer>
+</body>
+</html>
