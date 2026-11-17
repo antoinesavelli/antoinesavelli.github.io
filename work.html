@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work · Antoine Savelli</title>
+  <meta name="description" content="Paramo is the main codebase under governance, a solo-built financial research instrument." />
+  <link rel="canonical" href="https://antoine-savelli.com/work" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjRjJGMkYyIi8+CiAgPHRleHQgeD0iMyIgeT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxYzFjMWMiPkE8L3RleHQ+CiAgPHRleHQgeD0iMTYiIHk9IjI0IiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iIzQ1NkI1MSI+UzwvdGV4dD4KPC9zdmc+" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="nav-brand" href="/"><span class="nav-name">Antoine</span><em class="nav-last"> Savelli</em></a>
+    <ul class="nav-links">
+      <li><a href="/work" aria-current="page">Work</a></li>
+      <li><a href="/approach">Approach</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#connect">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="work">
+    <header class="work-intro">
+      <h1>Work</h1>
+      <p class="lead"><strong>Paramo</strong> is the main codebase under governance, a solo-built financial research instrument. <strong>pruvera</strong>, <strong>torra</strong> and <strong>pastore</strong> are the controls on the AI agents and local models I build with and that run the codebase's routines. How the work they do earns trust depends on <a href="/approach">my approach</a>.</p>
+    </header>
+
+    <nav aria-label="Projects on this page">
+      <p class="project-pick">Choose a project</p>
+      <ul class="project-index">
+        <li><a href="#paramo"><span class="pi-kind">Subject</span><span class="pi-name">Paramo</span><span class="pi-what">Research and backtesting</span></a></li>
+        <li><a href="#pruvera"><span class="pi-kind">Control</span><span class="pi-name">pruvera</span><span class="pi-what">Which model to trust</span></a></li>
+        <li><a href="#torra"><span class="pi-kind">Control</span><span class="pi-name">torra</span><span class="pi-what">Which command runs</span></a></li>
+        <li><a href="#pastore"><span class="pi-kind">Control</span><span class="pi-name">pastore</span><span class="pi-what">Which background job runs</span></a></li>
+      </ul>
+    </nav>
+
+    <section class="project project-paramo" aria-labelledby="paramo-h">
+      <span class="project-anchor" id="paramo"></span>
+      <p class="project-kind">Subject</p>
+      <h2 id="paramo-h">Paramo, <em>the codebase under governance</em></h2>
+      <p>Paramo is a research and backtesting system with a built execution path to a broker. No live or paper order has filled, and its trading services have been stopped since 8 October 2026.</p>
+      <div class="fl">
+        <div class="fl-box fl-finding">
+          <p class="fl-label"><svg aria-hidden="true" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.4 10.4 14 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Finding <span class="fl-type">Outcomes analysis</span></p>
+          <p>A tick-level audit of a strategy that had passed its statistical tests showed the backtest understated losses. Its deflated Sharpe ratio fell below the 0.95 pass bar, and the strategy was retired without a trade.</p>
+        </div>
+        <div class="fl-box fl-limit">
+          <p class="fl-label"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 1.8 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 6.2v3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="11.9" r="1" fill="currentColor"/></svg>Limitation</p>
+          <p>The repository is private, so it has no link and nobody outside can rerun the audit.</p>
+        </div>
+      </div>
+      <div class="repo-card repo-private">
+        <span class="repo-name"><svg aria-hidden="true" viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7.5" rx="1.2" fill="currentColor"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>antoinesavelli / <strong>paramo</strong></span>
+        <span class="repo-desc">Private repository, so there is no public link.</span>
+        <span class="repo-meta"><span class="repo-badge">Private</span></span>
+      </div>
+    </section>
+
+    <section class="project project-pruvera" aria-labelledby="pruvera-h">
+      <span class="project-anchor" id="pruvera"></span>
+      <p class="project-kind">Control</p>
+      <h2 id="pruvera-h">pruvera, <em>evidence about which model to trust</em></h2>
+      <p>pruvera runs local AI coding agents on a sandboxed copy of Paramo, with defects planted whose correct answer is known, and scores each change by tests. It has passed no model and grants nothing.</p>
+      <div class="fl">
+        <div class="fl-box fl-finding">
+          <p class="fl-label"><svg aria-hidden="true" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.4 10.4 14 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Finding <span class="fl-type">Third-party model testing</span></p>
+          <p>In one planted case, none of 14 local models asked before editing a file the rules say to ask about first (0 of 14). Three tried to edit it, and the permission layer refused them.</p>
+        </div>
+        <div class="fl-box fl-limit">
+          <p class="fl-label"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 1.8 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 6.2v3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="11.9" r="1" fill="currentColor"/></svg>Limitation</p>
+          <p>The copy of Paramo it ran on is private, so outsiders can read the method and the harness but cannot rerun the numbers.</p>
+        </div>
+      </div>
+      <a class="repo-card" href="https://github.com/antoinesavelli/pruvera">
+        <span class="repo-name"><svg aria-hidden="true" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>antoinesavelli / <strong>pruvera</strong></span>
+        <span class="repo-desc">Evaluation and controls for AI coding agents. Sandboxed trials, planted defects with known answers and pre-registered decision rules.</span>
+        <span class="repo-meta"><span class="repo-lang">Python</span><span>MIT License</span><span class="repo-go">View on GitHub</span></span>
+      </a>
+    </section>
+
+    <section class="project project-torra" aria-labelledby="torra-h">
+      <span class="project-anchor" id="torra"></span>
+      <p class="project-kind">Control</p>
+      <h2 id="torra-h">torra, <em>which command runs</em></h2>
+      <p>torra is a terminal agent for Linux system work. A local model proposes a plan and never gets a shell. torra decides which proposed command runs and which waits for my approval.</p>
+      <div class="fl">
+        <div class="fl-box fl-finding">
+          <p class="fl-label"><svg aria-hidden="true" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.4 10.4 14 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Finding <span class="fl-type">Approval gates</span></p>
+          <p>The first graded review of torra found that its classifier rated commands such as <code>dd if=/dev/zero of=/etc/passwd</code> and <code>kill -9 -1</code> safe, so they would have run with no approval. On 4 October 2026 the rule changed so that a program torra does not recognise, or a known one writing to a system path, waits for my approval.</p>
+        </div>
+        <div class="fl-box fl-limit">
+          <p class="fl-label"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 1.8 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 6.2v3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="11.9" r="1" fill="currentColor"/></svg>Limitation</p>
+          <p>The review was my own, run by an AI agent session with a grading rubric, and torra did not catch the fault. Later reviews found more commands that slipped past the new rule, and the blind red-team run has not happened.</p>
+        </div>
+      </div>
+      <a class="repo-card" href="https://github.com/antoinesavelli/torra">
+        <span class="repo-name"><svg aria-hidden="true" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>antoinesavelli / <strong>torra</strong></span>
+        <span class="repo-desc">A local model proposes operating-system changes. Code-based gates classify them and snapshot what they touch, and the operator ticks every risky step before it runs.</span>
+        <span class="repo-meta"><span class="repo-lang">Python</span><span>MIT License</span><span class="repo-go">View on GitHub</span></span>
+      </a>
+    </section>
+
+    <section class="project project-pastore" aria-labelledby="pastore-h">
+      <span class="project-anchor" id="pastore"></span>
+      <p class="project-kind">Control</p>
+      <h2 id="pastore-h">pastore, <em>which background job runs</em></h2>
+      <p>pastore schedules the model-heavy background jobs on my GPU machines. A job runs only as a task and model pair that I have listed with evidence, and only after it passes a contract test against a simulated model server that returns errors, refuses connections and hangs.</p>
+      <div class="fl">
+        <div class="fl-box fl-finding">
+          <p class="fl-label"><svg aria-hidden="true" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.4 10.4 14 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Finding <span class="fl-type">Implementation testing</span></p>
+          <p>Neither of the first two jobs pastore was built to run met that contract. One recorded each model-server error as a failed result and still exited as a success, and the other retried every HTTP error. Both were fixed and passed the contract before pastore listed them.</p>
+        </div>
+        <div class="fl-box fl-limit">
+          <p class="fl-label"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 1.8 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 6.2v3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="11.9" r="1" fill="currentColor"/></svg>Limitation</p>
+          <p>The faults were found by reading both jobs while pastore was being designed, and they are why every job must pass the contract test. Both jobs were mine. The model and job pairs pastore runs carry stand-in evidence, because pruvera has not yet passed any model.</p>
+        </div>
+      </div>
+      <a class="repo-card" href="https://github.com/antoinesavelli/pastore">
+        <span class="repo-name"><svg aria-hidden="true" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>antoinesavelli / <strong>pastore</strong></span>
+        <span class="repo-desc">A priority gateway and background job dispatcher for local model hosts. Only owner-listed task and model pairs run, each on a host where the model fits.</span>
+        <span class="repo-meta"><span class="repo-lang">Python</span><span>MIT License</span><span class="repo-go">View on GitHub</span></span>
+      </a>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>Antoine Savelli</p>
+  </footer>
+</body>
+</html>

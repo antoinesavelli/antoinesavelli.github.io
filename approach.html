@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approach · Antoine Savelli</title>
+  <meta name="description" content="How I use AI so the results can be trusted: four pillars, each with a worked example, and the rulebook my AI agents read." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <link rel="canonical" href="https://antoine-savelli.com/approach" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjRjJGMkYyIi8+CiAgPHRleHQgeD0iMyIgeT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxYzFjMWMiPkE8L3RleHQ+CiAgPHRleHQgeD0iMTYiIHk9IjI0IiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iIzQ1NkI1MSI+UzwvdGV4dD4KPC9zdmc+" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="nav-brand" href="/"><span class="nav-name">Antoine</span><em class="nav-last"> Savelli</em></a>
+    <ul class="nav-links">
+      <li><a href="/work">Work</a></li>
+      <li><a href="/approach" aria-current="page">Approach</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#connect">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="approach">
+    <header class="approach-intro">
+      <h1>How I use AI so the results can be trusted</h1>
+      <p class="lead">I'm Antoine Savelli. I set the standard, direct the AI, check the evidence and keep the decisions that matter, across research, analysis and software.</p>
+    </header>
+
+    <section aria-labelledby="short-h">
+      <h2 class="short-h" id="short-h">The short version</h2>
+      <ol class="tiles" role="list">
+        <li><a href="#correct">Define "correct" first</a><p>Set the standard before AI does the work.</p><p class="tile-proof">A benchmark ended a $50k annual contract.</p></li>
+        <li><a href="#rules">Write the rules down, enforce the critical ones</a><p>Written rules carry over; the critical ones are enforced.</p><p class="tile-proof">Told to ask first, 0 of 14 models did. The permission layer held.</p></li>
+        <li><a href="#judge">Check the work independently</a><p>An AI's account of its work is a claim to check.</p><p class="tile-proof">Another company's AI caught five overstated claims on a draft of this page.</p></li>
+        <li><a href="#decide">Keep the decision with a person</a><p>AI proposes. Anything destructive or public waits for me.</p><p class="tile-proof">torra's dangerous commands wait for my approval.</p></li>
+      </ol>
+    </section>
+
+    <section class="principle" id="correct" aria-labelledby="correct-h">
+      <h2 id="correct-h">Define &quot;correct&quot; first</h2>
+      <p class="why">A result is only good or bad against a standard set in advance. Before AI does the work, I decide what a right answer looks like and what it will be compared against.</p>
+      <div class="example">
+        <p class="example-label"><span class="eg-tag">Example</span> SimpsonScarborough, where I worked</p>
+        <dl>
+          <dt>Problem</dt><dd>The research team relied on a $50k platform to analyse open-ended survey answers.</dd>
+          <dt>What I did</dt><dd>I led an AI replacement and tested it against pre-coded datasets, comparing themes and sentiment.</dd>
+          <dt>Result</dt><dd>Within 5 to 10% of the platform on both. A decision-maker approved the switch and the $50k annual contract ended.</dd>
+        </dl>
+      </div>
+      <div class="example">
+        <p class="example-label"><span class="eg-tag">Example</span> <a href="https://github.com/antoinesavelli/pruvera">pruvera</a>, checking local models against answer keys</p>
+        <dl>
+          <dt>Problem</dt><dd>A local model could take over research work, if its answers hold up.</dd>
+          <dt>What I did</dt><dd>Set answer keys first, then had pruvera score each model on facts found, citation support and wrong answers given without warning.</dd>
+          <dt>Result</dt><dd>None cleared the bar for open-ended research, so that stays with Claude. The model chosen for lookups gave no wrong answer without warning in 45 trials but missed too much, so it handles lookups only.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="principle" id="rules" aria-labelledby="rules-h">
+      <h2 id="rules-h">Write the rules down, enforce the critical ones</h2>
+      <p class="why">Instructions given only in a chat don't carry over to the next session. A written doctrine does. For the rules that matter most, a permission layer enforces them.</p>
+      <div class="doctrine">
+        <p class="example-label"><span class="eg-tag">Example</span> my AI agents' doctrine</p>
+        <p class="doctrine-what">Its core is shared across 4 repositories. It grows when a lesson repeats.</p>
+        <ul class="rules" role="list">
+          <li>Approval covers only the action it was given for.</li>
+          <li>Never soften a failure.</li>
+          <li>A check you did not run is not a check that passed.</li>
+          <li>Label fact, inference, assumption.</li>
+          <li>Recommend, don't survey.</li>
+        </ul>
+      </div>
+      <div class="example">
+        <p class="example-label"><span class="eg-tag">Example</span> <a href="https://github.com/antoinesavelli/pruvera">pruvera</a>, a test bench for AI models</p>
+        <dl>
+          <dt>Problem</dt><dd>Models were told to ask before editing a protected file.</dd>
+          <dt>What I did</dt><dd>Had pruvera test 14 local models in one staged scenario.</dd>
+          <dt>Result</dt><dd>0 of 14 asked. Three tried the edit and the permission layer refused them.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="principle" id="judge" aria-labelledby="judge-h">
+      <h2 id="judge-h">Check the work independently</h2>
+      <p class="why">An agent's report on its work is a claim to check. A separate model checks delegated work without seeing the builder's report.</p>
+      <div class="example">
+        <p class="example-label"><span class="eg-tag">Example</span> this page</p>
+        <dl>
+          <dt>Problem</dt><dd>Claude drafted this page, and separate Claude reviewers passed it.</dd>
+          <dt>What I did</dt><dd>Had GPT, a model from another company, review the draft before publishing.</dd>
+          <dt>Result</dt><dd>It caught five overstated claims and one accessibility gap. All were fixed before the page went to human review.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="principle" id="decide" aria-labelledby="decide-h">
+      <h2 id="decide-h">Keep the decision with a person</h2>
+      <p class="why">AI can propose, draft and run checks, but a person owns the outcome. Anything destructive or public waits for my yes.</p>
+      <div class="example">
+        <p class="example-label"><span class="eg-tag">Example</span> <a href="https://github.com/antoinesavelli/torra">torra</a>, an AI assistant for Linux tasks</p>
+        <dl>
+          <dt>Problem</dt><dd>A model could propose a destructive command.</dd>
+          <dt>What I did</dt>
+          <dd>
+            <figure class="diagram">
+              <svg viewBox="0 0 400 262" role="img" aria-labelledby="t-title t-desc" focusable="false">
+                <title id="t-title">What torra runs</title>
+                <desc id="t-desc">A plan goes to torra's code. Safe or caution steps run once started. Dangerous or critical steps and unrecognised programs wait for me.</desc>
+                <rect class="box" x="12" y="12" width="376" height="54" rx="2"/>
+                <text x="24" y="34"><tspan class="b">Local model</tspan></text>
+                <text x="24" y="53">writes a plan</text>
+                <path class="ln" d="M200 66V80"/>
+                <rect class="fill-forest" x="12" y="80" width="376" height="54" rx="2"/>
+                <text class="on" x="24" y="102"><tspan class="b">torra's code</tspan></text>
+                <text class="on" x="24" y="121">classifies commands</text>
+                <path class="ln" d="M200 134V146M100 146H300M100 146V158M300 146V158"/>
+                <rect class="box" x="12" y="158" width="176" height="92" rx="2"/>
+                <text x="24" y="180"><tspan class="b">Safe or caution</tspan></text>
+                <text x="24" y="199">runs once started</text>
+                <rect class="box-held" x="212" y="158" width="176" height="92" rx="2"/>
+                <text x="224" y="180"><tspan class="b">Dangerous,</tspan></text>
+                <text x="224" y="199"><tspan class="b">critical or</tspan></text>
+                <text x="224" y="218"><tspan class="b">unknown</tspan></text>
+                <text x="224" y="237">waits for me</text>
+              </svg>
+            </figure>
+          </dd>
+          <dt>Result</dt><dd>A review found destructive commands rated safe. That rating was fixed the next day, and unrecognised programs now wait for me.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <p class="close">See the systems on <a href="/work">/work</a>. See the SR&nbsp;26-2 mapping and the known limits on <a href="/controls">/controls</a>.</p>
+  </main>
+  <footer class="site-footer">
+    <p>Antoine Savelli</p>
+  </footer>
+</body>
+</html>
